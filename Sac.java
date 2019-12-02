@@ -1,18 +1,19 @@
-public class Sac extends Acc{
-  private Acc[] tab;
+public class Sac extends Acc{ // Un sac est un accessoire
+	private Acc[] tab ; // seul attribut de cette classe
 
-  /* Constructeurs */
-  public Sac (int n){
-    super("Sac");
-    tab = new Acc[n]; //On crée un sac pouvant contenir au max n accessoires
-  }
-  public Sac (){
-    super("Sac");
-    tab = new Acc[(int)(Math.random()*10)+1]; //Sac peut contenir entre [1;10] accessoires
-  }
+	/* Constructeurs */
+	public Sac (int n){
+		super("Sac") ; // Appel au constructeur Acc("Sac") 
+		tab = new Acc[n] ; // Le sac peut contenir au maximum n accessoires (n taille du tableau)
+	}
+	
+	public Sac (){
+		super("Sac") ; // Appel au constructeur Acc("Sac") 
+		tab = new Acc[(1 + (int)(Math.random() * 10.0))] ; //Sac peut contenir entre [1;10] accessoires
+	}
 
-  /* Methodes */
-  public int nbElementSac(){
+	/* Méthodes */
+	public int nbElementSac(){
     int cpt=0;
     for(Acc val :tab){
       if(val != null){
@@ -29,27 +30,33 @@ public class Sac extends Acc{
     return poids;
   }
 
-  public int size(){
-    return (tab.length);
-  }
-  public void ajouter(Acc a){
-    for (Acc val : tab){
-      if (val==null){
-        val = a;
-        break;
-      }
-      else{ System.out.println("Pas de place dans le sac"); }
-    }
-  }
-  public Acc obtenir(int i){
-    if (tab[i] != null){
-      return tab[i];
-    } else{
-      return null;
-    }
-  }
-  public String toString(){
-    //return ("Sac No %d %2.fkg contient %d accessoires sur %d places", numero, getPoids(), super.cpt);
-    return ("Sac No "+numero+" "+getPoids()+"kg contient "+super.cpt+" places");
-  }
+	public int size(){
+		return (tab.length) ;
+	}
+	
+	public void ajouter(Acc a){
+		for (Acc val : tab){
+			if (val == null){
+				val = a ;
+				return ;
+			}
+		}
+		System.out.println("Pas de place") ; 
+		return ; 
+	}
+		
+	public Acc obtenir(int i){
+		if (tab[i] != null){
+			Acc temp = tab[i] ; 
+			tab[i] = null ;
+			return temp ; 
+		}
+		return null ; 
+	}
+
+	@Override
+	public String toString(){
+		//return ("Sac No %d %2.fkg contient %d accessoires sur %d places", numero, getPoids(), super.cpt);
+		return ("Sac No "+numero+" "+getPoids()+"kg contient "+super.cpt+" places");
+	}
 }
