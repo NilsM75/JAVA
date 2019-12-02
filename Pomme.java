@@ -10,14 +10,14 @@ public class Pomme extends Acc implements Mangeable {
 	public Pomme (){
 		super("Pomme") ;
 		rayon = 3.0 + (Math.random() * 4.0) ; // rayon dans [3;7[ cm
-		poids = ( ( (4 / 3000) * Math.PI) * Math.pow(rayon, 3) ) ;
+		poids = ( ( (4.0 / 3000.0) * Math.PI) * Math.pow(rayon, 3) ) ;
 	}
 
 	/* Méthodes */
 	
 	@Override
 	public String toString(){
-		return (super.toString() + " " + rayon + "cm") ;
+		return String.format("%s %.2fcm", super.toString(), rayon) ;
 		// exemple : pomme No 1 0.26kg 3.9cm
 	}
 

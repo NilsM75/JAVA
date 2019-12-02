@@ -1,6 +1,7 @@
 public class Sac extends Acc { // Un sac est un accessoire
 
 	/* Attributs */
+	
 	private Acc[] tab ; // Le seul attribut de cette classe
 
 	/* Constructeurs */
@@ -12,7 +13,7 @@ public class Sac extends Acc { // Un sac est un accessoire
 	
 	public Sac () {
 		super("Sac") ; // Appel au constructeur Acc("Sac") 
-		tab = new Acc[(1 + (int)(Math.random() * 10.0))] ; //Sac peut contenir entre [1;10] accessoires
+		tab = new Acc[(1 + (int)(Math.random() * 10.0))] ; //Sac peut contenir un nombre dans [1;10] d'accessoires
 	}
 
 	/* Méthodes */
@@ -42,7 +43,7 @@ public class Sac extends Acc { // Un sac est un accessoire
 		return ; 
 	}
 		
-	public Acc obtenir(int i) { // retourne l'accessoire à la position i dans le sac s'il existe, ull sinon. L'accessoire retourné n'est plus dans le sac.
+	public Acc obtenir(int i) { // retourne l'accessoire à la position i dans le sac s'il existe, null sinon. L'accessoire retourné n'est plus dans le sac.
 		if (tab[i] != null){
 			Acc temp = tab[i] ; 
 			tab[i] = null ;
@@ -69,7 +70,7 @@ public class Sac extends Acc { // Un sac est un accessoire
 				temp += "\t" + acc.toString() + "\n" ; 
 			}
 		}
-		return (super.toString() + " contient " + getNbElementsSac() + "accessoires sur " + size() + " places" + "\n" + temp) ;
+		return (super.toString() + " contient " + getNbElementsSac() + " accessoires sur " + size() + " places" + "\n" + temp) ;
 		/* Exemple : 
 			sac No 3 0.80kg contient 2 accessoires sur 7 places 
 				pomme No 1 0,26kg 3.9cm
