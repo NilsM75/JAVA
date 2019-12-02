@@ -1,11 +1,15 @@
-public class Jeu{
-  public static void main (String [] args){
-    Sac sac = new Sac(5);
-    sac.ajouter(new Pomme());
-    sac.ajouter(new Pomme());
-    System.out.println(sac);
-    /*for(Acc val: tab){
-      System.out.println(val);
-    } */
-  }
+public class Jeu {
+	public static void main (String [] args){
+		/* Test demandé */
+		Sac sac = new Sac(5) ;
+		System.out.println(sac) ;
+		
+		sac.ajouter(new Pomme()) ;
+		sac.ajouter(new Pomme()) ;
+		sac.ajouter(new Pomme()) ;sac.ajouter(new Pomme()) ;sac.ajouter(new Pomme()) ;sac.ajouter(new Pomme()) ;sac.ajouter(new Pomme()) ;
+		System.out.println(sac) ;
+		/* Tests en plus */
+		
+		return ; 
+	}
 }

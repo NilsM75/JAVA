@@ -1,3 +1,3 @@
-public interface Mangeable{
-  public double getPoids();
+public interface Mangeable {
+	public double getPoids() ;
 }
