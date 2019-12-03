@@ -34,7 +34,7 @@ public class Personnage { // abstract permet d'empecher la creation directe d'in
 		// exemple : Tulip 77.3 kg 
 	}
 	
-	public String getNom(){
+	public String getNomPersonnage(){
 		return nom ; 
 	}
 	
