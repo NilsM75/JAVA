@@ -26,4 +26,22 @@ public abstract class Acc {
 		return String.format("%s No %d %.2fkg", categorie, numero, getPoids()) ;
 		// exemple : pomme No 1 0.26kg // exemple : sac No 2 1.80kg
 	}
+	
+	public int getNumero(){
+		return numero ; 
+	}
+	
+	private void setNumero(int numero){
+		this.numero = numero ; 
+		return ; 
+	}
+	
+	public String getCategorie(){
+		return categorie ; 
+	}
+	
+	private void setCategorie(String categorie){
+		this.categorie = categorie ; 
+		return ; 
+	}
 }

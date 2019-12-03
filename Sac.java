@@ -70,7 +70,20 @@ public class Sac extends Acc { // Un sac est un accessoire
 				temp += "\t" + acc.toString() + "\n" ; 
 			}
 		}
-		return (super.toString() + " contient " + getNbElementsSac() + " accessoires sur " + size() + " places" + "\n" + temp) ;
+		String temp1, temp2 ; 
+		if(getNbElementsSac() > 1){
+			temp1 = new String(" accessoires sur ") ;
+		}
+		else{
+			temp1 = new String(" accessoire sur ") ; 
+		}
+		if(size() > 1){
+			temp2 = new String(" places\n") ; 
+		}
+		else{
+			temp2 = new String(" place\n") ; 
+		}
+		return (super.toString() + " contient " + getNbElementsSac() + temp1 + size() + temp2 + temp) ;
 		/* Exemple : 
 			sac No 3 0.80kg contient 2 accessoires sur 7 places 
 				pomme No 1 0,26kg 3.9cm
@@ -78,4 +91,9 @@ public class Sac extends Acc { // Un sac est un accessoire
 		*/
 	}
 	
+	public Acc[] getTab(){
+		return tab ; 
+	}
+	
+	private void setTab(Acc[] tab){ return ; }
 }
