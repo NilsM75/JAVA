@@ -9,7 +9,8 @@ public class Jeu {
 		sac2.ajouter(sac1) ;
 		sac1.ajouter(p2) ; 
 		System.out.println(sac2) ;
-
+		/* // Test à décommenter
+			//Test d'ajouter pour voir si cela enlève 
 		return ; 
 	}
 }

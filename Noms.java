@@ -1,5 +1,7 @@
 public abstract class Noms { // classe outil 
+
 	/* Attributs */
+	
 	private String[] tabNoms ; // tableau qui contiendra les noms choisis
 	private static int cpt = 0 ; // compteur du nombre de fois que le tableau est parcouru
 	private static int position = (-1) ; // donne la position courante dans le tableau
@@ -10,7 +12,7 @@ public abstract class Noms { // classe outil
 		tabNoms = new String[] {"Jean", "Petit", "QuiDanse"} ;
 	}
 	
-	/* Methodes */
+	/* Méthodes */
 	
 	public String getNom(){ 
 		position ++ ; 
