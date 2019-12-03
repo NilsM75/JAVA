@@ -14,6 +14,7 @@ public abstract class Noms { // classe outil
 	
 	public String getNom(){ 
 		position ++ ; 
+		
 		if (position < tabNoms.length){
 			if(cpt == 0){
 				return ("" + tabNoms[position]) ; 
@@ -27,7 +28,7 @@ public abstract class Noms { // classe outil
 		return getNom() ; 
 	}
 	
-	/* //Pour tester la fonction getNom(), il suffit de décommenter cette partie et de rendre la classe non abstraite 
+	/* //Pour tester la fonction getNom(), il suffit de décommenter cette partie et de rendre la classe non abstraite
 	public static void main(String[] args) {
 		Noms test = new Noms() ;
 		System.out.println(test.getNom() + "  " + test.getNom() + "   " + test.getNom()+

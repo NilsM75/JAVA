@@ -1,4 +1,4 @@
-public class Personnage { // abstract permet d'empecher la creation directe d'instance de cette classe
+public class Personnage extends Item { // abstract permet d'empecher la creation directe d'instance de cette classe
 	
 	/* Attributs */
 	
