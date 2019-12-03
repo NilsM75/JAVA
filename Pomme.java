@@ -6,7 +6,7 @@ public class Pomme extends Acc implements Mangeable {
 	private double rayon ; // rayon de la pomme en cm
 
 	/* Constructeurs */
-	
+
 	public Pomme (){
 		super("Pomme") ;
 		rayon = 3.0 + (Math.random() * 4.0) ; // rayon dans [3;7[ cm
