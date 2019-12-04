@@ -11,17 +11,21 @@ public class Jeu {
 		sac1.ajouter(p2) ; 
 		System.out.println(sac2) ;
 		/* Test demandé 2 */
-		Ststem.out.println("\nTest demandé 2") ; 
+		System.out.println("\nTest demandé 2") ;
+		/* 
+			Ne marche pas 
+		*/
 		Creature c1 = new Creature() ; 
+		System.out.println(c1) ; 
 		Pomme p11 = new Pomme() ; 
 		Pomme p22 = new Pomme() ;
 		Pomme p33 = new Pomme() ; 
 		
 		System.out.println("\n" + c1.courir()) ;
 
-		c1.ajouterAcc(p1) ; 
-		c1.ajouterAcc(p2) ; 
-		c1.ajouterAcc(p3) ; 
+		c1.ajouterAcc(p11) ; 
+		c1.ajouterAcc(p22) ; 
+		c1.ajouterAcc(p33) ; 
 		
 		System.out.println("\n" + c1.courir()) ; 
 		

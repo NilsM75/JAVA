@@ -73,8 +73,8 @@ public class Avatar extends Personnage { // Avatar est un personnage
 			à 0.5 kg alors la créature devient amie avec lui. Si, par contre, il n'a pas d'accessoires à offrir
 			à la créature alors si cette créature était une amie, il perd son amitié. */
 		
-		Acc a ; // accessoire temporaire
 		int i = 0 ; // compteur
+		Acc a = listeAcc.get(0) ; // accessoire temporaire
 		// On cherche le premier accessoire dans la liste 
 		while (a == null){
 			if (i == listeAcc.size()){ // pas d'acccessoire à offrir

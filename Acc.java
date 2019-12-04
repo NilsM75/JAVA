@@ -1,4 +1,4 @@
-public abstract class Acc extends Item {
+public abstract class Acc {
 	
 	/* Attributs */
 	
