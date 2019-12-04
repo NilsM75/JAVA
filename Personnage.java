@@ -51,4 +51,5 @@ public class Personnage extends Item { // abstract permet d'empecher la creation
 		this.poids = poids ; 
 		return ; 
 	}
+	
 }

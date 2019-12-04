@@ -1,4 +1,5 @@
 public abstract class Item { 
+	/* 
 	/*  Le nom de l'accessoire est sa catégorie.
 		Acc et Personnage héritent de cette classe */
 	
