@@ -1,4 +1,4 @@
-public class Personnage { // abstract permet d'empecher la creation directe d'instance de cette classe
+public abstract class Personnage { // abstract permet d'empecher la creation directe d'instance de cette classe
 	
 	/* Attributs */
 	
@@ -8,7 +8,6 @@ public class Personnage { // abstract permet d'empecher la creation directe d'in
 	/* Constructeurs */
 	
 	private Personnage() { }
-	private Personnage(double poids) { }
 	
 	public Personnage(String nom, double poids){
 		this.nom = nom ;
@@ -31,23 +30,23 @@ public class Personnage { // abstract permet d'empecher la creation directe d'in
 	
 	public String toString(){
 		return String.format("%s %.1f kg", nom, poids) ;
-		// exemple : Tulip 77.3 kg 
+		// exemple : Tulipo 77.3 kg 
 	}
 	
-	public String getNomPersonnage(){
+	public String getNomPersonnage(){ // retourne le nom du personnage 
 		return nom ; 
 	}
 	
-	protected double getPoids(){
+	protected double getPoids(){ // retourne le poids du personnage, que pour les classes filles 
 		return poids ; 
 	}
 	
-	private void setNom(String nom){
+	private void setNom(String nom){ // modifie le nom du personnage
 		this.nom = nom ;
 		return ;
 	}
 	
-	private void setPoids(double poids){
+	private void setPoids(double poids){ // modifie le poids du personnage
 		this.poids = poids ; 
 		return ; 
 	}

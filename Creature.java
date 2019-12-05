@@ -1,18 +1,20 @@
-public class Creature extends Personnage{
+public class Creature extends Personnage{ // créature est un personnage qui a un sac
+ 
 	/* Attributs */
-	private Sac sacCreature ; // sac de la créature
+	private Sac leSac ; // sac de la créature
 
 	/* Constructeurs */
 	public Creature (){
-		super(Noms.getNom()) ;
-		sacCreature = new Sac() ; // Le sac de la creature peut contenir entre 1 et 10 accessoires (aléatoirement)
+		super(Noms.getNom()) ; // appel au constructeur Personnage(Noms.getNom()) 
+		leSac = new Sac() ; // Le sac de la creature peut contenir entre 1 et 10 accessoires (aléatoirement)
 	}
 
 	/* Méthodes */
 	public void ajouterAcc (Acc a){ 
-	// ajoute un accessoire dans le sac de la créature si le poids du sac plus le poids de l'accessoire est inférieur à la moitié du poids de la créature, affiche "Trop Lourd" sinon.
-		if( (sacCreature.getPoids() + a.getPoids()) < (0.5 * super.getPoids()) ) {
-			sacCreature.ajouter(a) ;
+	/* 	Ajoute un accessoire dans le sac de la créature si le poids du sac plus le poids de l'accessoire est inférieur à la moitié du poids de la créature
+		affiche "Trop Lourd" sinon. */
+		if( (leSac.getPoids() + a.getPoids()) < (0.50 * super.getPoids()) ){ // 1.0/2.0 = 0.50
+			leSac.ajouter(a) ;
 		}else{
 			System.out.println("Trop lourd") ;
 		}
@@ -20,7 +22,7 @@ public class Creature extends Personnage{
 
 	public double getVitesse(){
 	// retourne la vitesse à laquelle peut courir la créature 
-		double v = (0.25 * super.getPoids()) - (sacCreature.getPoids()) ;
+		double v = (0.250 * super.getPoids()) - (leSac.getPoids()) ; // 1.0/4.0 = 0.250
 		if (v < 0.0){
 			v = 0.0 ;
 		}
@@ -33,7 +35,7 @@ public class Creature extends Personnage{
 		est mangeable, alors on ajoute le poids de l'accessoire au poids de la créature,
 		sinon on remet l'accessoire dans le sac.
 		Si l'accessoire est un sac, la créature ne mange pas le contenu de ce sac.*/	
-		Acc tab [] = sacCreature.getTab() ;
+		Acc tab [] = leSac.getTab() ;
 		for(int i = 0 ; i < tab.length ; i ++){
 			if(tab[i] instanceof Mangeable){
 				Acc temp = tab[i] ;
@@ -50,7 +52,7 @@ public class Creature extends Personnage{
 	}
 
 	public String courir (){
-		return (super.toString() + " court à la vitesse " + String.format("%.2f", this.getVitesse()) + "km/h avec le " + sacCreature) ;
+		return (super.toString() + " court à la vitesse " + String.format("%.2f", this.getVitesse()) + "km/h avec " + leSac.toString()) ;
 	}
 	
 	/* Exemple :

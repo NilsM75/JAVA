@@ -1,4 +1,4 @@
-public class Pomme extends Acc implements Mangeable {
+public class Pomme extends Acc implements Mangeable { // Une Pomme est un Accessoire qui a la propriété d'être Mangeable
 	
 	/* Attributs */
 	
@@ -21,15 +21,15 @@ public class Pomme extends Acc implements Mangeable {
 		// exemple : pomme No 1 0.26kg 3.9cm
 	}
 
-	public double getPoids(){
+	public double getPoids(){ // retourne le poids de la pomme 
 		return poids ;
 	}
 	
-	public double getRayon(){
+	public double getRayon(){ // retourne le rayon de la pomme 
 		return rayon ; 
 	}
 	
-	public void setRayon(double rayon){
+	private void setRayon(double rayon){ // change la valeur du rayon de la pomme 
 		this.rayon = rayon ; 
 		return ; 
 	}

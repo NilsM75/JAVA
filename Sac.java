@@ -1,8 +1,8 @@
-public class Sac extends Acc { // Un sac est un accessoire
+public class Sac extends Acc { // Un sac est un accessoire, Sac est une classe fille d'Acc
 
-	/* Attributs */
+	/* Attribut, obligatoirement un seul attribut */
 	
-	private Acc[] tab ; // Le seul attribut de cette classe
+	private Acc[] tab ; // tableau d'accessoires 
 
 	/* Constructeurs */
 	
@@ -18,7 +18,7 @@ public class Sac extends Acc { // Un sac est un accessoire
 
 	/* Méthodes */
 
-	public double getPoids () {
+	public double getPoids () { // retourne le poids du sac 
 		double poids = 0.0 ;
 		for(int i = 0 ; i < tab.length ; i ++){
 			if(tab[i] != null){
@@ -33,8 +33,8 @@ public class Sac extends Acc { // Un sac est un accessoire
 	}
 	
 	public void ajouter (Acc a) { // Ajoute l'accessoire a à la première place libre, ou affiche "Pas de place" si aucune place n'est libre dans le sac.
-		for (int i = 0 ; i < tab.length ; i ++) {
-			if (tab[i] == null) {
+		for (int i = 0 ; i < tab.length ; i ++){
+			if (tab[i] == null){
 				tab[i] = a ;
 				return ;
 			}
@@ -43,7 +43,7 @@ public class Sac extends Acc { // Un sac est un accessoire
 		return ; 
 	}
 		
-	public Acc obtenir(int i) { // retourne l'accessoire à la position i dans le sac s'il existe, null sinon. L'accessoire retourné n'est plus dans le sac.
+	public Acc obtenir(int i){ // retourne l'accessoire à la position i dans le sac s'il existe, null sinon. L'accessoire retourné n'est plus dans le sac.
 		if (tab[i] != null){
 			Acc temp = tab[i] ; 
 			tab[i] = null ;
@@ -52,10 +52,10 @@ public class Sac extends Acc { // Un sac est un accessoire
 		return null ; 
 	}
 
-	public int getNbElementsSac() {
+	public int getNbElementsSac(){ // retourne le nombre d'éléments/accessoires dans le sac
 		int cpt = 0 ;
-		for (Acc acc : tab){
-			if (acc != null){
+		for (int i = 0 ; i < tab.length ; i ++){
+			if (tab[i] != null){
 				cpt ++ ; 
 			}
 		}
@@ -66,10 +66,13 @@ public class Sac extends Acc { // Un sac est un accessoire
 	public String toString(){
 		String temp = new String() ; 
 		for (Acc acc : tab){
-			if (acc != null){
+			if (acc != null){ 
 				temp += "\t" + acc.toString() + "\n" ; 
 			}
 		}
+
+		// accessoire (s) / place (s)
+		
 		String temp1, temp2 ; 
 		if(getNbElementsSac() > 1){
 			temp1 = new String(" accessoires sur ") ;
@@ -83,6 +86,7 @@ public class Sac extends Acc { // Un sac est un accessoire
 		else{
 			temp2 = new String(" place\n") ; 
 		}
+		
 		return (super.toString() + " contient " + getNbElementsSac() + temp1 + size() + temp2 + temp) ;
 		/* Exemple : 
 			sac No 3 0.80kg contient 2 accessoires sur 7 places 
@@ -91,9 +95,8 @@ public class Sac extends Acc { // Un sac est un accessoire
 		*/
 	}
 	
-	public Acc[] getTab(){
+	public Acc[] getTab(){ // retourne le tableau d'accessoires 
 		return tab ; 
 	}
 	
-	private void setTab(Acc[] tab){ return ; }
 }
