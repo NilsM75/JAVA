@@ -1,18 +1,16 @@
 public abstract class Item { 
-	/* 
+
 	/*  Le nom de l'accessoire est sa catégorie.
 		Acc et Personnage héritent de cette classe */
 	
 	/* Attributs */
-	private final String nom ;
+	private final String NOM ;
 	private int x, y ;
 
 	/* Constructeurs */ 
-	
-	private Item() {  }
-	
+
 	public Item(String nom, int x, int y){
-		this.nom = nom ; 
+		this.NOM = nom ; 
 		this.x = x ; 
 		this.y = y ; 
 	}
@@ -42,11 +40,11 @@ public abstract class Item {
 	}
 	
 	public String getNom() {
-		return nom ; 
+		return NOM ; 
 	}
 	
 	public String toString(){
-		return (nom + "(" + x + ", " + y + ")") ;
+		return (NOM + "(" + x + ", " + y + ")") ;
 	}
 	
 	public int distance (Item item) { // distance de Manhattan
