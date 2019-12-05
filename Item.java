@@ -1,6 +1,6 @@
 public abstract class Item { 
 
-	/* Acc et Personnage héritent de cette classe */
+	/* Acc et Personnage héritent de cette classe (Item soit Acc soit Personnage en fait) */
 	
 	/* Attributs */
 	private final String nom ; // nom de l'item, qui est en fait, sa catégorie
