@@ -64,6 +64,7 @@ public abstract class Monde {
 		return nom ; 
 	}
 	
+	/*
 	// Décommenter pour tester la fonction getNomCourt ici 
 	public static void main(String[] args){
 		System.out.println("pour \"x\" : " + getNomCourt("x") + "f") ; // __x_
@@ -72,6 +73,8 @@ public abstract class Monde {
 		System.out.println("pour \"pomme\" : " + getNomCourt("pomme") + "f") ; // pomm
 		return ; 
 	}
+	*/
+	
 	public void afficher(){
 		
 		return ;  // pour que cela compile
