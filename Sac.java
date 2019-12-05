@@ -13,7 +13,7 @@ public class Sac extends Acc { // Un sac est un accessoire, Sac est une classe f
 	
 	public Sac () {
 		super("Sac") ; // Appel au constructeur Acc("Sac") 
-		tab = new Acc[(1 + (int)(Math.random() * 10.0))] ; //Sac peut contenir un nombre dans [1;10] d'accessoires
+		tab = new Acc[(1 + (int)(Math.random() * 10.0d))] ; //Sac peut contenir un nombre dans [1;10] d'accessoires
 	}
 
 	/* Méthodes */

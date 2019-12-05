@@ -9,8 +9,8 @@ public class Pomme extends Acc implements Mangeable { // Une Pomme est un Access
 
 	public Pomme (){
 		super("Pomme") ;
-		rayon = 3.0 + (Math.random() * 4.0) ; // rayon dans [3;7[ cm
-		poids = ( ( (4.0 / 3000.0) * Math.PI) * Math.pow(rayon, 3) ) ;
+		rayon = 3.0d + (Math.random() * 4.0d) ; // rayon dans [3;7[ cm
+		poids = ( ( (4.0d / 3000.0d) * Math.PI) * Math.pow(rayon, 3) ) ;
 	}
 
 	/* Méthodes */

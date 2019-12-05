@@ -16,13 +16,13 @@ public abstract class Personnage { // abstract permet d'empecher la creation dir
 	
 	public Personnage(String nom){
 		this.nom = nom ;
-		poids = (30.0 + (Math.random() * 100.0)) ; // poids dans [30;130[
+		poids = (30.0d + (Math.random() * 100.0d)) ; // poids dans [30;130[
 	}
 
 	/* Méthodes */
 	
 	protected void addPoids(double p){ // ajoute du poids au personnage si p > 0
-		if (p > 0.0) {
+		if (p > 0.0d) {
 			poids += p ; 
 		}
 		return ; 

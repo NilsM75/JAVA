@@ -4,13 +4,13 @@ public abstract class Item {
 		Acc et Personnage héritent de cette classe */
 	
 	/* Attributs */
-	private final String NOM ;
+	private final String nom ;
 	private int x, y ;
 
 	/* Constructeurs */ 
 
 	public Item(String nom, int x, int y){
-		this.NOM = nom ; 
+		this.nom = nom ; 
 		this.x = x ; 
 		this.y = y ; 
 	}
@@ -39,12 +39,12 @@ public abstract class Item {
 		return ; 
 	}
 	
-	public String getNom() {
-		return NOM ; 
+	public String getnom() {
+		return nom ; 
 	}
 	
 	public String toString(){
-		return (NOM + "(" + x + ", " + y + ")") ;
+		return (nom + "(" + x + ", " + y + ")") ;
 	}
 	
 	public int distance (Item item) { // distance de Manhattan

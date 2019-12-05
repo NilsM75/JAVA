@@ -13,7 +13,7 @@ public class Creature extends Personnage{ // créature est un personnage qui a u
 	public void ajouterAcc (Acc a){ 
 	/* 	Ajoute un accessoire dans le sac de la créature si le poids du sac plus le poids de l'accessoire est inférieur à la moitié du poids de la créature
 		affiche "Trop Lourd" sinon. */
-		if( (leSac.getPoids() + a.getPoids()) < (0.50 * super.getPoids()) ){ // 1.0/2.0 = 0.50
+		if( (leSac.getPoids() + a.getPoids()) < (0.50d * super.getPoids()) ){ // 1.0/2.0 = 0.50
 			leSac.ajouter(a) ;
 		}else{
 			System.out.println("Trop lourd") ;
@@ -22,9 +22,9 @@ public class Creature extends Personnage{ // créature est un personnage qui a u
 
 	public double getVitesse(){
 	// retourne la vitesse à laquelle peut courir la créature 
-		double v = (0.250 * super.getPoids()) - (leSac.getPoids()) ; // 1.0/4.0 = 0.250
-		if (v < 0.0){
-			v = 0.0 ;
+		double v = (0.250d * super.getPoids()) - (leSac.getPoids()) ; // 1.0/4.0 = 0.250
+		if (v < 0.0d){
+			v = 0.0d ;
 		}
 		return v ;
 	}
