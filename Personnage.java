@@ -28,7 +28,7 @@ public abstract class Personnage { // abstract permet d'empecher la creation dir
 		return ; 
 	}
 	
-	public String toString(){
+	public String toString(){ // retourne chaine de caractères donnant des informations sur le personnage
 		return String.format("%s %.1f kg", nom, poids) ;
 		// exemple : Tulipo 77.3 kg 
 	}

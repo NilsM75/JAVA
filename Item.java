@@ -43,7 +43,7 @@ public abstract class Item {
 		return nom ; 
 	}
 	
-	public String toString(){
+	public String toString(){ // retourne chaine de caractères donnant des informations sur l'item  
 		return (nom + "(" + x + ", " + y + ")") ;
 	}
 	

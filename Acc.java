@@ -23,7 +23,7 @@ public abstract class Acc { // Acc pour accessoire
 		le crops sera défini dans les classes filles, utilisable ici */
 	
 	@Override
-	public String toString () {
+	public String toString () { // retourne chaine de caractères donnant des informations sur l'accessoire
 		return String.format("%s No %d %.2fkg", categorie, numero, getPoids()) ; // affichage du poids avec uniquement deux chiffres derrière la virgule 
 		// exemple 1 : pomme No 1 0.26kg | exemple 2 : sac No 2 1.80kg
 	}

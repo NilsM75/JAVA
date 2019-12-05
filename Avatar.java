@@ -18,7 +18,7 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 	/* Méthodes */
 	
 	@Override
-	public String toString(){
+	public String toString(){ // retourne chaine de caractères donnant des informations sur l'avatar
 		
 		// ami (s) / accessoire (s) 
 		
@@ -113,7 +113,9 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 		for(int i = 0 ; i < listeAmis.size() ; i ++){
 			c = listeAmis.get(i) ;
 			c.manger() ; // mange 
-			c.courir() ; // court pendant 1 heure
+			// court pendant 1 heure 
+			System.out.println("Pendant 1 heure : ") ; 
+			c.courir() ; 
 			distance += c.getVitesse() ; 
 		}
 		

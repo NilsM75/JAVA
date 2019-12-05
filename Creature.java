@@ -54,7 +54,7 @@ public class Creature extends Personnage{ // créature est un personnage qui a u
 	}
 
 	public void courir (){ // affiche une chaine de caractère du même style que l'exemple plus bas
-		System.out.println(this.toString() + " court à la vitesse " + String.format("%.2f", this.getVitesse()) + "km/h avec " + leSac.toString()) ;
+		System.out.println(this.toString() + " court à vitesse " + String.format("%.2f", this.getVitesse()) + "km/h avec " + leSac.toString()) ;
 		return ; 
 	}
 	
@@ -66,7 +66,7 @@ public class Creature extends Personnage{ // créature est un personnage qui a u
 	*/
 	
 	@Override
-	public String toString(){
+	public String toString(){ // retourne chaine de caractères donnant des informations sur la créature
 		return (super.toString()) ; 
 	}
 }

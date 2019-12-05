@@ -1,4 +1,4 @@
-public abstract class Noms { // classe outil, aucune instance de cette classe ne peut être crée
+public abstract class Noms { // classe outil, aucune instance de cette classe ne peut être crée (abstraite)
 
 	/* Attributs */
 	
