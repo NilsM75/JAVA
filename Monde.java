@@ -48,7 +48,7 @@ public abstract class Monde {
 	
 	private static String getNomCourt(String nom){
 		if(nom.length() > 4){
-			return getNomCourt(nom.substring(0, nom.length())) ; 
+			return getNomCourt(nom.substring(0, nom.length()-1)) ; 
 		}
 		
 		// On aurait pu faire plus simple, mais comme on exige un certain "pattern" de placement d'espaces à suivre
@@ -64,6 +64,14 @@ public abstract class Monde {
 		return nom ; 
 	}
 	
+	// Décommenter pour tester la fonction getNomCourt ici 
+	public static void main(String[] args){
+		System.out.println("pour \"x\" : " + getNomCourt("x") + "f") ; // __x_
+		System.out.println("pour \"xx\" : " + getNomCourt("xx") + "f") ; // _xx_
+		System.out.println("pour \"sac\" : " + getNomCourt("sac") + "f") ; // sac_ 
+		System.out.println("pour \"pomme\" : " + getNomCourt("pomme") + "f") ; // pomm
+		return ; 
+	}
 	public void afficher(){
 		
 		return ;  // pour que cela compile
