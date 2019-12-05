@@ -42,13 +42,26 @@ public abstract class Monde {
 	}
 	
 	public ArrayList<Item> getVoisins(Item item){
-	
+		
 		return null ; // pour que cela compile
 	}
 	
 	private static String getNomCourt(String nom){
+		if(nom.length() > 4){
+			return getNomCourt(nom.substring(0, nom.length())) ; 
+		}
 		
-		return new String() ; // pour que cela compile 
+		// On aurait pu faire plus simple, mais comme on exige un certain "pattern" de placement d'espaces à suivre
+		if(nom.length() < 4){
+			if((nom.length() % 2) == 0){ // 0 ou 2
+				return getNomCourt(" " + nom + " ") ; 
+			}				
+			// 1 
+			return ("  " + nom + " ") ; 
+		}
+		
+		// 4
+		return nom ; 
 	}
 	
 	public void afficher(){
