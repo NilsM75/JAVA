@@ -30,12 +30,13 @@ public class Creature extends Personnage{ // créature est un personnage qui a u
 	}
 
 	public void manger (){ 
-	/*  
-		La créature mange les accessoires mangeables du sac ce qui augmente son poids.
-		Pour cela, on sort un par un les accessoires mangeables du sac. Si l'accessoire
-		est mangeable, alors on ajoute le poids de l'accessoire au poids de la créature,
-		sinon on remet l'accessoire dans le sac.
-		Si l'accessoire est un sac, la créature ne mange pas le contenu de ce sac.*/	
+	/*  Voici ce que l'on nous propose de faire : 
+			La créature mange les accessoires mangeables du sac ce qui augmente son poids.
+			Pour cela, on sort un par un les accessoires mangeables du sac. Si l'accessoire
+			est mangeable, alors on ajoute le poids de l'accessoire au poids de la créature,
+			sinon on remet l'accessoire dans le sac.
+			Si l'accessoire est un sac, la créature ne mange pas le contenu de ce sac.
+		Nous avons proposé une solution moins complexe pour faire exactement la même chose.*/	
 		Acc tab [] = leSac.getTab() ;
 		for(int i = 0 ; i < tab.length ; i ++){
 			if(tab[i] instanceof Mangeable){
@@ -52,8 +53,9 @@ public class Creature extends Personnage{ // créature est un personnage qui a u
 		return ; 
 	}
 
-	public String courir (){
-		return (this.toString() + " court à la vitesse " + String.format("%.2f", this.getVitesse()) + "km/h avec " + leSac.toString()) ;
+	public void courir (){ // affiche une chaine de caractère du même style que l'exemple plus bas
+		System.out.println(this.toString() + " court à la vitesse " + String.format("%.2f", this.getVitesse()) + "km/h avec " + leSac.toString()) ;
+		return ; 
 	}
 	
 	/* Exemple :

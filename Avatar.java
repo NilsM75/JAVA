@@ -1,11 +1,14 @@
-import java.util.ArrayList;
+import java.util.ArrayList ;
 
-public class Avatar extends Personnage { // Avatar est un personnage 
+public class Avatar extends Personnage { // Avatar est un personnage qui a une liste d'amis et une liste d'accessoires
+	
 	/* Attributs */
-	private ArrayList<Creature> listeAmis ; // liste d'amis
-	private ArrayList<Acc> listeAcc ; // liste d'accessoires
+	
+	private ArrayList<Creature> listeAmis ; // liste d'amis (qui sont des créatues)
+	private ArrayList<Acc> listeAcc ; // liste d'accessoires 
 
 	/* Constructeurs */
+	
 	public Avatar (String nom, double poids){
 		super(nom, poids) ; // Appel au constructeur Personnage(nom, poids) 
 		listeAmis = new ArrayList<Creature>() ;
@@ -13,9 +16,11 @@ public class Avatar extends Personnage { // Avatar est un personnage
 	}
 
 	/* Méthodes */
+	
 	@Override
 	public String toString(){
-		// String s = String.format("%.2f", poids); (?)
+		
+		// ami (s) / accessoire (s) 
 		
 		String temp1, temp2 ; 
 		
@@ -32,18 +37,21 @@ public class Avatar extends Personnage { // Avatar est un personnage
 		}
 		
 		return (super.toString() + " " + listeAmis.size() + temp1 + listeAcc.size() + temp2) ;
+		/* Exemple : 
+			Jake 79.5 kg 1 ami 3 accessoires 
+		*/
 	}
 	
-	public boolean estAmi (Creature c){
+	public boolean estAmi (Creature c){ // retourne True si c est une amie, False sinon
 		for(int i = 0 ; i < listeAmis.size() ; i ++){
-			if(listeAmis.get(i) == c){
+			if((listeAmis.get(i)).equals(c)){
 				return true ;
 			}
 		}
 		return false ;
 	}
 	
-	public void devenirAmi (Creature c){
+	public void devenirAmi (Creature c){ // fait devenir ami l'avatar avec la créature c (s'ils ne sont pas amis)
 		if (estAmi(c)){
 			return ; 
 		}
@@ -54,13 +62,13 @@ public class Avatar extends Personnage { // Avatar est un personnage
 		return ; 
 	}
 	
-	public void perdreAmi (Creature c){
+	public void perdreAmi (Creature c){ // fait perdre l'avatar son ami c (s'ils sont amis)
 		if (!estAmi(c)){
 			return ; 
 		}
 		
-		listeAmis.remove(c) ; 
-		System.out.println(this.toString() + "a perdu " + c.toString()) ; 
+		listeAmis.remove(listeAmis.indexOf(c)) ; 
+		System.out.println(this.toString() + "a rompu son lien d'amitié avec " + c.toString()) ; 
 		
 		return ; 
 	}
@@ -74,9 +82,9 @@ public class Avatar extends Personnage { // Avatar est un personnage
 			à la créature alors si cette créature était une amie, il perd son amitié. */
 		
 		int i = 0 ; // compteur
-		Acc a = listeAcc.get(0) ; // accessoire temporaire
+		Acc a ; 
 		// On cherche le premier accessoire dans la liste 
-		while (a == null){
+		do{
 			if (i == listeAcc.size()){ // pas d'acccessoire à offrir
 				if (estAmi(c)){ 
 					perdreAmi(c) ;
@@ -86,12 +94,15 @@ public class Avatar extends Personnage { // Avatar est un personnage
 			
 			a = listeAcc.get(i) ; 
 			i ++ ; 
-		}
-		// Si  on est là c'est qu'on a le premier accesseoire a et ne sont pas amis 
+		}while (a == null) ; 
+		
+		// Si  on est là c'est qu'on a le premier accesseoire a et ils ne sont pas amis 
 		if (a.getPoids() > 0.5) {
 			devenirAmi(c) ;
 			c.ajouterAcc(a) ; 
+			listeAcc.remove(listeAcc.indexOf(a)) ; 
 		}
+		
 		return ; 
 	}
 	
@@ -109,12 +120,12 @@ public class Avatar extends Personnage { // Avatar est un personnage
 		return distance ;
 	}
 	
-	public Creature getCreaturePlusRapide(){ // créature qui court le plus vite 
+	public Creature getCreaturePlusRapide(){ // retourne la créature qui court le plus vite 
 		Creature tmpRapide = listeAmis.get(0) ;
 		
 		for(int i = 1 ; i < listeAmis.size() ; i ++){
-			if(tmpRapide.getVitesse() < listeAmis.get(i).getVitesse()) {
-				tmpRapide = listeAmis.get(i);
+			if(tmpRapide.getVitesse() < (listeAmis.get(i)).getVitesse()) {
+				tmpRapide = listeAmis.get(i); 
 			}
 		}
 		
@@ -122,9 +133,9 @@ public class Avatar extends Personnage { // Avatar est un personnage
 	}
 	
 	public int compterAccMangeable(){ // retourne le nombre d'accessoires mangeables 
-		int cpt = 0 ;
-		for (Acc a : listeAcc){
-			if (a instanceof Mangeable){
+		int cpt = 0 ; // compteur 
+		for (int i = 0 ; i < listeAcc.size() ; i ++){
+			if (listeAcc.get(0) instanceof Mangeable){
 				cpt ++ ;
 			}
 		}
