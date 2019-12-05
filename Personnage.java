@@ -1,4 +1,4 @@
-public abstract class Personnage { // abstract permet d'empecher la creation directe d'instance de cette classe
+public abstract class Personnage extends Item { // abstract permet d'empecher la creation directe d'instance de cette classe
 	
 	/* Attributs */
 	
@@ -7,15 +7,13 @@ public abstract class Personnage { // abstract permet d'empecher la creation dir
 
 	/* Constructeurs */
 	
-	private Personnage() { }
-	
 	public Personnage(String nom, double poids){
-		this.nom = nom ;
+		super(nom) ; // appel au constructeur Item(nom)
 		this.poids = poids ;
 	}
 	
 	public Personnage(String nom){
-		this.nom = nom ;
+		super(nom) ;
 		poids = (30.0d + (Math.random() * 100.0d)) ; // poids dans [30;130[
 	}
 

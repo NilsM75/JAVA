@@ -1,4 +1,4 @@
-public abstract class Acc { // Acc pour accessoire 
+public abstract class Acc extends Item { // Acc pour accessoire 
 	
 	/* Attributs */
 	
@@ -8,10 +8,8 @@ public abstract class Acc { // Acc pour accessoire
 
 	/* Constructeurs */
 	
-	private Acc () { }
-	
 	public Acc (String categorie) {
-		this.categorie = categorie ;
+		super(categorie) ; // appel au constructeur Item(categorie)
 		cpt ++ ; 
 		numero = cpt ; 
 	}

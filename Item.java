@@ -1,11 +1,12 @@
 public abstract class Item { 
 
-	/*  Le nom de l'accessoire est sa catégorie.
-		Acc et Personnage héritent de cette classe */
+	/* Acc et Personnage héritent de cette classe */
 	
 	/* Attributs */
-	private final String nom ;
-	private int x, y ;
+	private final String nom ; // nom de l'item, qui est en fait, sa catégorie
+	// les coordonnées de l'item ^
+	private int x ; // abscisse entière 
+	private int y ; // ordonnée entière 
 
 	/* Constructeurs */ 
 
@@ -21,25 +22,25 @@ public abstract class Item {
 	
 	/* Méthodes */
 	
-	public int getX(){
+	public int getX(){ // retourne x 
 		return x ; 
 	}
 	
-	public int getY(){
+	public int getY(){ // retourne y 
 		return y ; 
 	}
 	
-	protected void setX(int x){
+	protected void setX(int x){ // modifie x 
 		this.x = x ; 
 		return ; 
 	}
 	
-	protected void setY(int y){
+	protected void setY(int y){ // modifie y 
 		this.y = y ; 
 		return ; 
 	}
 	
-	public String getnom() {
+	public String getnom() { // retourne nom 
 		return nom ; 
 	}
 	
@@ -47,7 +48,7 @@ public abstract class Item {
 		return (nom + "(" + x + ", " + y + ")") ;
 	}
 	
-	public int distance (Item item) { // distance de Manhattan
+	public int distance (Item item) { // retorune distance distance de Manhattan
 		return (Math.abs(x - item.x) + Math.abs(y - item.y)) ; 
 	}
 }
