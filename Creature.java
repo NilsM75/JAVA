@@ -30,7 +30,8 @@ public class Creature extends Personnage{ // créature est un personnage qui a u
 	}
 
 	public void manger (){ 
-	/*  La créature mange les accessoires mangeables du sac ce qui augmente son poids.
+	/*  
+		La créature mange les accessoires mangeables du sac ce qui augmente son poids.
 		Pour cela, on sort un par un les accessoires mangeables du sac. Si l'accessoire
 		est mangeable, alors on ajoute le poids de l'accessoire au poids de la créature,
 		sinon on remet l'accessoire dans le sac.
@@ -52,7 +53,7 @@ public class Creature extends Personnage{ // créature est un personnage qui a u
 	}
 
 	public String courir (){
-		return (super.toString() + " court à la vitesse " + String.format("%.2f", this.getVitesse()) + "km/h avec " + leSac.toString()) ;
+		return (this.toString() + " court à la vitesse " + String.format("%.2f", this.getVitesse()) + "km/h avec " + leSac.toString()) ;
 	}
 	
 	/* Exemple :
@@ -61,4 +62,9 @@ public class Creature extends Personnage{ // créature est un personnage qui a u
 			pomme No 5 0,38kg 4,5cm
 			pomme No 6 1,08kg 6,4cm 
 	*/
+	
+	@Override
+	public String toString(){
+		return (super.toString()) ; 
+	}
 }

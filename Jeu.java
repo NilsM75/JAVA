@@ -12,25 +12,21 @@ public class Jeu {
 		System.out.println(sac2) ;
 		/* Test demandé 2 */
 		System.out.println("\nTest demandé 2") ;
-		/* 
-			Ne marche pas 
-		*/
-		Creature c1 = new Creature() ; 
-		System.out.println(c1) ; 
+		Creature c1 = new Creature() ;  // création d'une créature c1
+		System.out.println("La créature est crée :\n" + c1 + "\n") ; // affichage de la créature c1
+		System.out.println("La créature court \n" + c1.courir() + "\n") ; // La créature c1 court 
+		// On crée 3 pommes p11, p22 et p33 pour les ajouter dans le sac principal de la créature
 		Pomme p11 = new Pomme() ; 
 		Pomme p22 = new Pomme() ;
 		Pomme p33 = new Pomme() ; 
-		
-		System.out.println("\n" + c1.courir()) ;
-
 		c1.ajouterAcc(p11) ; 
 		c1.ajouterAcc(p22) ; 
 		c1.ajouterAcc(p33) ; 
-		
-		System.out.println("\n" + c1.courir()) ; 
-		
+		// Et la créature court, de nouveau, mais avec 3 pommes dans son sac :
+		System.out.println("La créature court encore une fois mais avec 3 pommes dans son sac \n" + c1.courir() + "\n") ; 
+		// Maintenant, la créature va manger ses pommes 
 		c1.manger() ; 
-		System.out.println("\n" + c1.courir()) ; 
+		System.out.println("La créature court après avoir manger toutes ses pommes \n" + c1.courir()) ; 
 		
 		return ; 
 	}
