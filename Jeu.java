@@ -1,6 +1,6 @@
 public class Jeu {
-	public static void main (String [] args){ // Notre main 
-		System.out.println("Début du main") ; 
+	public static void main (String [] args){ // Notre main de Jeu
+		System.out.println("Début du main de Jeu") ; 
 		
 		/* Test demandé numéro 1 */
 		System.out.println("\nTest demandé numéro 1") ; 
@@ -43,7 +43,27 @@ public class Jeu {
 		System.out.println("La créature court après avoir manger toutes ses pommes \n") ; 
 		c1.courir() ; 
 		
-		System.out.println("Fin du main") ; 
+		/* Test demandé 3 */
+		System.out.println("\nTest demandé numéro 3") ; 
+		Monde m = new Monde(5) ; // création d'un Monde de taille 5 
+		Creature cm1 = new Creature() ; 
+		System.out.println(cm1) ; 
+		Creature cm2 = new Creature() ; 
+		System.out.println(cm2) ; 
+		Creature cm3 = new Creature() ; 
+		System.out.println(cm3) ; 
+		m.ajouterItem(cm1) ;
+		m.ajouterItem(cm2) ; 
+		m.ajouterItem(cm3) ; 
+		m.ajouterItem(new Pomme()) ; 
+		m.ajouterItem(new Pomme()) ; 
+		m.ajouterItem(new Pomme()) ; 
+		m.ajouterItem(new Avatar()) ; 
+		m.ajouterItem(new Avatar()) ; 
+		m.ajouterItem(new Avatar()) ;
+		m.afficher() ; 
+		
+		System.out.println("\nFin du main de Jeu") ; 
 		return ; 
 	}
 }

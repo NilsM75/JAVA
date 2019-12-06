@@ -1,30 +1,39 @@
 import java.util.ArrayList ;
 
-public abstract class Monde { 
-	/* les personnages et les acccessoires se trouvent dans un monde de forme carrée,
-		abstract donc pas de création d'instance */
+public class Monde { 
+	/* les personnages et les acccessoires se trouvent dans un monde de forme carrée */
 
 	/* Attributs */
 	private ArrayList<Item> listeItems ; // liste d'items
 	private int taille ; // taille du monde 
 	
 	/* Constructeurs */ 
-
+	public Monde(int taille){
+		this.taille = taille ; 
+		listeItems = new ArrayList<Item>() ; 
+	}
+	
 	/* Méthodes */
 	
 	public int getPositionAlea(){ 
 	/*  retourne une position enitère aléatoire dans le monde,
 		méthode utilisée pour donner des valeurs aussi bien pour les abscisses que pour les ordonnées */
-		return ((int)(Math.random() * taille)) ; 
+		return ((int)(Math.random() * (taille - 1))) ; // entier entre 0 et la (taille - 1) 
 	}
 	
 	public void ajouterItem(Item item){ // initialise aléatoirement l'abscisse et l'ordonnée de l'item et l'ajoute dans le monde
 		item.setX(getPositionAlea()) ; 
 		item.setY(getPositionAlea()) ; 
-		listeItems.add(item) ;
+		listeItems.add(item) ; 
 		return ; 
 	}
 	
+	public void ajouterItem(Item item, int x, int y){
+		item.setX(x) ; 
+		item.setY(y) ; 
+		listeItems.add(item) ;
+		return ;
+	}
 	public void supprimerItem(Item item){ // supprimer l'item du monde et met ses coordonnées à (-1, -1) 
 		item.setX((-1)) ;
 		item.setY((-1)) ;
@@ -47,17 +56,26 @@ public abstract class Monde {
 	}
 	
 	private static String getNomCourt(String nom){
+		/* 	retourne une chaine d'exactement 4 caractères suivant un certain pattern :
+			x -> __x_
+			xx -> _xx_
+			sac -> sac_
+			pomme -> pomm
+			...
+			(_ veut dire espace)
+		*/
+		// On aurait pu faire plus simple, mais comme on exige un certain "pattern" de placement d'espaces à suivre
+		
 		if(nom.length() > 4){
 			return getNomCourt(nom.substring(0, nom.length()-1)) ; 
 		}
 		
-		// On aurait pu faire plus simple, mais comme on exige un certain "pattern" de placement d'espaces à suivre
 		if(nom.length() < 4){
 			if((nom.length() % 2) == 0){ // 0 ou 2
-				return getNomCourt(" " + nom + " ") ; 
+				return getNomCourt(" " + nom + " ") ;  // un espace puis nom puis un espace 
 			}				
 			// 1 
-			return ("  " + nom + " ") ; 
+			return ("  " + nom + " ") ; // deux espaces puis nom puis un espace 
 		}
 		
 		// 4
@@ -76,7 +94,31 @@ public abstract class Monde {
 	*/
 	
 	public void afficher(){
+		/*  Affiche un monde aves ses items.
+			Exemple : 
+			Pour un monde de taille 5.
+			Principe : Pour chaque case de coordonnées (x, y), rechercher un item à ces coordonnées.
+			Si plusieurs items sont aux mêmes coordonnées, afficher seuelement le premier item trouvé.
+		*/	
 		
-		return ;  // pour que cela compile
+		// affichage première ligne (sans retour à la ligne)
+		System.out.print(getNomCourt("") + "|") ; 
+		for(int i = 0 ; i < taille ; i ++){
+			System.out.print(getNomCourt(i+"") + "|") ; 
+		}
+
+		// affichage du reste des lignes 
+		for(int i = 0 ; i < taille ; i ++){
+			System.out.print("\n" + getNomCourt((i+"")) + "|") ;  
+			for(int j = 0 ; j < taille ; j ++){
+				if(chercher(i, j) == null){
+					System.out.print(getNomCourt("") + "|") ; 
+				}else{
+					System.out.print(getNomCourt((chercher(i, j)) + "") + "|") ; 
+				}
+			}
+		}
+		System.out.println() ; 
+		return ;  
 	}
 }

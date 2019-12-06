@@ -6,7 +6,7 @@ public abstract class Personnage extends Item { // abstract permet d'empecher la
 	private double poids ; // poids du personnage
 
 	/* Constructeurs */
-	
+
 	public Personnage(String nom, double poids){
 		super(nom) ; // appel au constructeur Item(nom)
 		this.poids = poids ;

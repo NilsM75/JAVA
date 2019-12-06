@@ -30,7 +30,7 @@ public abstract class Noms { // classe outil, aucune instance de cette classe ne
 	}
 	
 	/*
-	 // Décommenter cette partie pour tester (sauvegarder, compiler puis Java Noms) 
+	 // Décommenter cette partie pour tester 
 	 
 	public static void main(String[] args){
 		System.out.println(Noms.getNom() + "  " + Noms.getNom() + "  " + Noms.getNom() + "  " +
