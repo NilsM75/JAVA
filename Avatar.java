@@ -174,5 +174,17 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 		}
 		return cpt ;
 	}
-
+	
+	public void ramasser(Acc a){ 
+	/*  L'Avatar ramasse l'acessoire a :
+		L'accessoire a est supprmié du monde, a est mis dans la liste d'accessoires de l'avatar
+		Un message du style "X ramasse A" est affiché
+	*/
+		listeAcc.add(a) ; 
+		monde.supprimerItem(a) ;
+		System.out.println(this.toString() + " ramasse " + a.toString()) ; 
+		return ; 
+	}
+	
+	
 }
