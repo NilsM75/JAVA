@@ -228,17 +228,17 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 	
 		int valeurMax = (monde.getTaille() - 1) ; 
 		int x, y ;
-		Scanner scanner = new Scanner("") ; 
+		Scanner scanner = new Scanner(System.in) ; 
 		
 		do{
 			System.out.println("Entrer une abscisse entre [0, " + valeurMax + "] : ") ; 
 			x = scanner.nextInt() ;
-		} while ((x < 0) && (x > valeurMax)) ;
+		} while ((x < 0) || (x > valeurMax)) ;
 		
 		do{
 			System.out.println("Entrer une ordonnée entre [0, " + valeurMax + "] : ") ; 
 			y = scanner.nextInt() ; 
-		} while ((y <0) && (y > valeurMax)) ; 
+		} while ((y <0) || (y > valeurMax)) ; 
 		
 		System.out.print("Déplacement de " + this.getNomPersonnage() + " de (" + this.getX() + ", " + this.getY() + ") vers (") ; 
 		this.setX(x) ; 
@@ -246,7 +246,7 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 		System.out.println(this.getX() + ", " + this.getY() + ")") ; 
 		
 		return ; 
-		
+	}	
 	/* Exemple : 
 		### Déplacement de Jake ###
 		Entrer une abscisse entre [0, 4] : 
@@ -257,5 +257,14 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 		2
 		Déplacement de Jake de (1, 1) vers (3, 2)
 	*/
+	
+	public static void main(String[] args){
+		System.out.println("Test de la méthode seDeplacer()") ;
+		Avatar avatarTest = new Avatar() ; 
+		System.out.println("Voici notre avatar de test :\n" + avatarTest.toString()) ; 
+		System.out.println("seDeplacer()") ; 
+		avatarTest.seDeplacer() ; 
+		System.out.println("Fin du test de la méthode seDeplacer()") ; 
 	}
+	
 }
