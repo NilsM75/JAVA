@@ -6,27 +6,46 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 	
 	private ArrayList<Creature> listeAmis ; // liste d'amis (qui sont des créatues)
 	private ArrayList<Acc> listeAcc ; // liste d'accessoires 
-
+	private Monde monde ; // le monde dans lequel "évolue" l'Avatar 
+	
 	/* Constructeurs */
 	
 	public Avatar (){
 		super(Noms.getNom()) ; // Appel au constructeur Personnage(nom)
 		listeAmis = new ArrayList<Creature>() ; 
 		listeAcc = new ArrayList<Acc>() ; 
+		monde = new Monde() ; 
 	}
 	
 	public Avatar (String nom, double poids){
 		super(nom, poids) ; // Appel au constructeur Personnage(nom, poids) 
 		listeAmis = new ArrayList<Creature>() ;
 		listeAcc = new ArrayList<Acc>() ;
+		monde = new Monde() ; 
 	}
 	
 	public Avatar (String nom){
 		super(nom) ; // Appel au constructeur Personnage(nom)
 		listeAmis = new ArrayList<Creature>() ; 
 		listeAcc = new ArrayList<Acc>() ; 
+		monde = new Monde() ; 
 	}
 
+	public Avatar(Monde monde) {
+		this() ;
+		this.monde = monde ; 
+	}
+	
+	public Avatar (String nom, double poids, Monde monde){
+		this(nom, poids) ; 
+		this.monde = monde ; 
+	}
+	
+	public Avatar(String nom, Monde monde){
+		this(nom) ; 
+		this.monde = monde ; 
+	}
+	
 	/* Méthodes */
 	
 	@Override

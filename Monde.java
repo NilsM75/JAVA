@@ -8,6 +8,10 @@ public class Monde {
 	private int taille ; // taille du monde 
 	
 	/* Constructeurs */ 
+	public Monde() {
+		taille = 5 ; 
+		listeItems = new ArrayList<Item>() ; 
+	}
 	public Monde(int taille){
 		this.taille = taille ; 
 		listeItems = new ArrayList<Item>() ; 
