@@ -223,8 +223,8 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 		Si l'abscisse est dans le monde, alors on fait de même avec l'ordonnée.
 		L'utilisateur saisit toujours un nombre entier. 	
 	*/
-		
-		System.out.println("### Déplacement de " + this.getNomPersonnage() + "###") ; 
+
+		System.out.println("### Déplacement de " + this.getNomPersonnage() + " ###") ; 
 	
 		int valeurMax = (monde.getTaille() - 1) ; 
 		int x, y ;
@@ -246,7 +246,8 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 		System.out.println(this.getX() + ", " + this.getY() + ")") ; 
 		
 		return ; 
-	}	
+	}
+	
 	/* Exemple : 
 		### Déplacement de Jake ###
 		Entrer une abscisse entre [0, 4] : 
@@ -258,6 +259,8 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 		Déplacement de Jake de (1, 1) vers (3, 2)
 	*/
 	
+	/*
+	// Décommenter pour tester la méthode seDeplacer() 
 	public static void main(String[] args){
 		System.out.println("Test de la méthode seDeplacer()") ;
 		Avatar avatarTest = new Avatar() ; 
@@ -266,5 +269,5 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 		avatarTest.seDeplacer() ; 
 		System.out.println("Fin du test de la méthode seDeplacer()") ; 
 	}
-	
+	*/
 }
