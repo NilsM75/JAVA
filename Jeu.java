@@ -40,6 +40,9 @@ public class Jeu {
 		Pomme p3 = new Pomme() ;
 		monde.ajouterItem(p3) ;
 		//System.out.println("Pomme3 ajoutée :\n" + p3.toString()) ;
+		// Ajout de BigMac dans le Monde
+		BigMac b1 = new BigMac();
+		monde.ajouterItem(b1);
 		// Ajout de 3 sacs dans le monde
 		Sac sac1 = new Sac() ;
 		monde.ajouterItem(sac1) ;
@@ -49,15 +52,12 @@ public class Jeu {
 		//System.out.println("sac2 ajouté :\n" + sac2.toString()) ;
 		Sac sac3 = new Sac() ;
 		monde.ajouterItem(sac3) ;
-		//Ajout du BigMac
-		BigMac burgerHarissa = new BigMac() ;
-		monde.ajouterItem(burgerHarissa) ; 
 		//System.out.println("sac3 ajouté :\n" + sac3.toString()) ;
 		// Monde généré avec succès, affichage du monde
 		System.out.println("Voici le monde peuplé : " + monde.toString()) ;
 		System.out.println("Affichons ce monde : ") ;
 		monde.afficher() ;
-		
+
 		// Il est temps d'ajouter deux avatars représentant chacun un joueur humain
 		Avatar joueur1 = new Avatar(monde) ;
 		monde.ajouterItem(joueur1) ;
@@ -103,8 +103,8 @@ public class Jeu {
 
 		// Fin 5 tours, donc, il faut que chaque avatar réalise une course avec ses créatures
 		System.out.println("\n\n\nScore Final") ;
-		double j1 = joueur1.course() ; System.out.println("j1 = " + j1 + "kilometres") ;
-		double j2 = joueur2.course() ;  System.out.println("j2 = " + j2 + "kilometres") ;
+		double j1 = joueur1.course() ; System.out.println("j1 = " + j1 + " kilometres") ;
+		double j2 = joueur2.course() ;  System.out.println("j2 = " + j2 + " kilometres") ;
 		if (j1 == j2) {
 			System.out.println("Match nul") ;
 		}
