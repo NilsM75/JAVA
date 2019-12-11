@@ -223,6 +223,28 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 		Si l'abscisse est dans le monde, alors on fait de même avec l'ordonnée.
 		L'utilisateur saisit toujours un nombre entier. 	
 	*/
+		
+		System.out.println("### Déplacement de " + this.getNomPersonnage() + "###") ; 
+	
+		int valeurMax = (monde.getTaille() - 1) ; 
+		int x, y ;
+		Scanner scanner = new Scanner("") ; 
+		
+		do{
+			System.out.println("Entrer une abscisse entre [0, " + valeurMax + "] : ") ; 
+			x = scanner.nextInt() ;
+		} while ((x < 0) && (x > valeurMax)) ;
+		
+		do{
+			System.out.println("Entrer une ordonnée entre [0, " + valeurMax + "] : ") ; 
+			y = scanner.nextInt() ; 
+		} while ((y <0) && (y > valeurMax)) ; 
+		
+		System.out.print("Déplacement de " + this.getNomPersonnage() + " de (" + this.getX() + ", " + this.getY() + ") vers (") ; 
+		this.setX(x) ; 
+		this.setY(y) ;
+		System.out.println(this.getX() + ", " + this.getY() + ")") ; 
+		
 		return ; 
 		
 	/* Exemple : 

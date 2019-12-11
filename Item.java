@@ -49,7 +49,7 @@ public abstract class Item {
 		return (nom + "(" + x + ", " + y + ")") ;
 	}
 	
-	public int distance (Item item) { // retorune distance distance de Manhattan
+	public int distance (Item item) { // retorune distance de Manhattan
 		return (Math.abs(x - item.x) + Math.abs(y - item.y)) ; 
 	}
 }

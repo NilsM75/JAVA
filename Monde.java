@@ -132,4 +132,8 @@ public class Monde {
 		System.out.println() ; 
 		return ;  
 	}
+	
+	public int getTaille(){
+		return taille ; 
+	}
 }
