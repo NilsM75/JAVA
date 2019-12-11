@@ -16,7 +16,7 @@ public class BigMac extends Acc implements Mangeable {
   /* Méthodes */
   @Override
   public String toString(){
-    return String.format("%s", super.toString(), adjectif) ; // toString d'Acc
+    return (""+super.toString()+" "+adjectif) ; // toString d'Acc
     // exemple : pomme No 1 0.26kg 3.9cm
   }
 
