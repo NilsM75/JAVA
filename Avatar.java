@@ -251,6 +251,8 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 		this.setY(y) ;
 		System.out.println(this.getX() + ", " + this.getY() + ")") ; 
 		
+		// Quand il se déplace, il "rencontre" ses voisins 
+		rencontrerVoisins() ;
 		return ; 
 	}
 	

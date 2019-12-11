@@ -56,10 +56,10 @@ public class Jeu {
 		monde.afficher() ; 
 		
 		// Il est temps d'ajouter deux avatars représentant chacun un joueur humain 
-		Avatar joueur1 = new Avatar() ; 
+		Avatar joueur1 = new Avatar(monde) ; 
 		monde.ajouterItem(joueur1) ; 
 		//System.out.println("Ajout du premier avatar/joueur :\n" + joueur1.toString()) ; 
-		Avatar joueur2 = new Avatar() ; 
+		Avatar joueur2 = new Avatar(monde) ; 
 		monde.ajouterItem(joueur2) ; 
 		//System.out.println("Ajout du deuxième avatar/joueur :\n" + joueur2.toString()) ; 
 		
@@ -79,13 +79,11 @@ public class Jeu {
 			// tour du joueur 1 
 			System.out.println("Action de " + joueur1.getNomPersonnage()) ; 
 			joueur1.seDeplacer() ; 
-			joueur1.rencontrerVoisins() ;
 			System.out.println(joueur1) ; 
 			monde.afficher() ; 
 			// tour  du joueur 2 
 			System.out.println("Action de " + joueur2.getNomPersonnage()) ; 
 			joueur2.seDeplacer() ;
-			joueur2.rencontrerVoisins() ; 
 			System.out.println(joueur2) ; 
 			monde.afficher() ; 
 		}
