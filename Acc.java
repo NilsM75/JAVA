@@ -10,6 +10,7 @@ public abstract class Acc extends Item { // Acc pour accessoire
 	
 	public Acc (String categorie) {
 		super(categorie) ; // appel au constructeur Item(categorie)
+		this.categorie = categorie ; 
 		cpt ++ ; 
 		numero = cpt ; 
 	}

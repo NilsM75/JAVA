@@ -44,6 +44,7 @@ public abstract class Item {
 		return nom ; 
 	}
 	
+	@Override
 	public String toString(){ // retourne chaine de caractères donnant des informations sur l'item  
 		return (nom + "(" + x + ", " + y + ")") ;
 	}

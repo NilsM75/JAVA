@@ -10,7 +10,7 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 	/* Constructeurs */
 	
 	public Avatar (){
-		super(Noms.getNom()) ; 
+		super(Noms.getNom()) ; // Appel au constructeur Personnage(nom)
 		listeAmis = new ArrayList<Creature>() ; 
 		listeAcc = new ArrayList<Acc>() ; 
 	}
@@ -22,7 +22,7 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 	}
 	
 	public Avatar (String nom){
-		super(nom) ;
+		super(nom) ; // Appel au constructeur Personnage(nom)
 		listeAmis = new ArrayList<Creature>() ; 
 		listeAcc = new ArrayList<Acc>() ; 
 	}

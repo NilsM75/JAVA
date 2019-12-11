@@ -8,12 +8,14 @@ public abstract class Personnage extends Item { // abstract permet d'empecher la
 	/* Constructeurs */
 
 	public Personnage(String nom, double poids){
-		super(nom) ; // appel au constructeur Item(nom)
+		super(nom) ; // Appel au constructeur Item(nom)
+		this.nom = nom ; 
 		this.poids = poids ;
 	}
 	
 	public Personnage(String nom){
-		super(nom) ;
+		super(nom) ; // Appel au constructeur Item(nom)
+		this.nom = nom ; 
 		poids = (30.0d + (Math.random() * 100.0d)) ; // poids dans [30;130[
 	}
 

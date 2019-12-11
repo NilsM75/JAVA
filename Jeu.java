@@ -5,13 +5,20 @@ public class Jeu {
 		/* Test demandé numéro 1 */
 		System.out.println("\nTest demandé numéro 1") ; 
 		Pomme p1 = new Pomme() ;
+		System.out.println("Pomme p1 crée :\t" + p1) ; 
 		Sac sac1 = new Sac() ;
+		System.out.println("Sac sac1 crée :\t" + sac1) ; 
 		Sac sac2 = new Sac(5) ;
+		System.out.println("Sac sac2 crée :\t" + sac2) ;
 		Pomme p2 = new Pomme() ; 
+		System.out.println("Pomme p2 crée :\t" + p2) ; 
+		System.out.println("Ajout de p1 dans sac2") ; 
 		sac2.ajouter(p1) ;
+		System.out.println("Ajout de sac1 dans sac2") ; 
 		sac2.ajouter(sac1) ;
+		System.out.println("Ajout de p2 dans sac1") ; 
 		sac1.ajouter(p2) ; 
-		System.out.println(sac2) ; 
+		System.out.println("Voici notre sac2 :\n" + sac2) ;
 		
 		/* Test demandé 2 */
 		System.out.println("\nTest demandé numéro 2") ;

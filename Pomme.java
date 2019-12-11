@@ -8,7 +8,7 @@ public class Pomme extends Acc implements Mangeable { // Une Pomme est un Access
 	/* Constructeurs */
 
 	public Pomme (){
-		super("Pomme") ;
+		super("Pomme") ; // Appel au cosntructeur Acc(categorie)
 		rayon = 3.0d + (Math.random() * 4.0d) ; // rayon dans [3;7[ cm
 		poids = ( ( (4.0d / 3000.0d) * Math.PI) * Math.pow(rayon, 3) ) ;
 	}
@@ -17,7 +17,7 @@ public class Pomme extends Acc implements Mangeable { // Une Pomme est un Access
 	
 	@Override
 	public String toString(){
-		return String.format("%s %.2fcm", super.toString(), rayon) ;
+		return String.format("%s %.2fcm", super.toString(), rayon) ; // toString d'Acc
 		// exemple : pomme No 1 0.26kg 3.9cm
 	}
 
