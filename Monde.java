@@ -59,7 +59,7 @@ public class Monde {
 	   (la liste de voisins ne doit pas contenir l'item en paramètre) */
 		ArrayList<Item> temp = new ArrayList<Item>() ; 
 		for(int i = 0 ; i < listeItems.size() ; i ++){
-			if (Math.sqrt(Math.pow(((listeItems.get(i)).getX() - item.getX()), 2) + Math.pow(((listeItems.get(i)).getY() - item.getY()), 2)) <= 2.0d){
+			if ((!((listeItems.get(i)).equals(item))) && (Math.sqrt(Math.pow(((listeItems.get(i)).getX() - item.getX()), 2) + Math.pow(((listeItems.get(i)).getY() - item.getY()), 2)) <= 2.0d)){
 				temp.add(listeItems.get(i)) ; 
 			}
 		}

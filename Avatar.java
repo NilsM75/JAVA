@@ -1,3 +1,4 @@
+import java.util.Scanner ; 
 import java.util.ArrayList ;
 
 public class Avatar extends Personnage { // Avatar est un personnage qui a une liste d'amis et une liste d'accessoires
@@ -186,5 +187,35 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 		return ; 
 	}
 	
+	public void rencontrerVoisins(){
+	/*	Pour chaque voisin de l'avatar
+		si le voisin est un accessoire, alors l'avatar ramasse l'accessoire;
+		si le voisin est une créature, alors l'avatar rencontre la créature;
+		si le voisin est un avatar, alors l'avatar salue (affiche une salutation) l'autre avatar 
+		Attention : l'avatar ne doit pas se saluer lui même
+	*/
+		
+		return ; 
+	}
 	
+	public void seDeplacer(){
+	/*	Le programme demande à l'utilisateur de saisir dans le terminal une abscisse.
+		Si l'abscisse n'est pas dans le monde, alors le programme demande à nouveau de saisir une abscisse
+		jusqu'à ce que le nombre saisi soit correcte.
+		Si l'abscisse est dans le monde, alors on fait de même avec l'ordonnée.
+		L'utilisateur saisit toujours un nombre entier. 	
+	*/
+		return ; 
+		
+	/* Exemple : 
+		### Déplacement de Jake ###
+		Entrer une abscisse entre [0, 4] : 
+		20
+		Entrer une abscisse entre [0, 4] : 
+		3
+		Entrer une ordonnée entre [0, 4] : 
+		2
+		Déplacement de Jake de (1, 1) vers (3, 2)
+	*/
+	}
 }
