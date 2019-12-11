@@ -49,12 +49,15 @@ public class Jeu {
 		//System.out.println("sac2 ajouté :\n" + sac2.toString()) ;
 		Sac sac3 = new Sac() ;
 		monde.ajouterItem(sac3) ;
+		//Ajout du BigMac
+		BigMac burgerHarissa = new BigMac() ;
+		monde.ajouterItem(burgerHarissa) ; 
 		//System.out.println("sac3 ajouté :\n" + sac3.toString()) ;
 		// Monde généré avec succès, affichage du monde
 		System.out.println("Voici le monde peuplé : " + monde.toString()) ;
 		System.out.println("Affichons ce monde : ") ;
 		monde.afficher() ;
-
+		
 		// Il est temps d'ajouter deux avatars représentant chacun un joueur humain
 		Avatar joueur1 = new Avatar(monde) ;
 		monde.ajouterItem(joueur1) ;

@@ -9,6 +9,11 @@ public class Creature extends Personnage{ // créature est un personnage qui a u
 		leSac = new Sac() ; // Le sac de la creature peut contenir entre 1 et 10 accessoires (aléatoirement)
 	}
 
+	public Creature(String nom){
+		super(nom) ; 
+		leSac = new Sac() ; 
+	}
+	
 	/* Méthodes */
 	public void ajouterAcc (Acc a){ 
 	/* 	Ajoute un accessoire dans le sac de la créature si le poids du sac plus le poids de l'accessoire est inférieur à la moitié du poids de la créature
