@@ -2,7 +2,7 @@ public abstract class Noms { // classe outil, aucune instance de cette classe ne
 
 	/* Attributs */
 	
-	private final static String[] TAB_NOMS = new String[] {"Altair", "Ezio", "Desmond"} ; // tableau qui contient les noms choisis
+	private final static String[] TAB_NOMS = new String[] {"Bob", "Fil", "Jaz"} ; // tableau qui contient les noms choisis
 	private static int cpt = 0 ; // compteur du nombre de fois que le tableau est parcouru
 	private static int position = (-1) ; // donne la position courante dans le tableau
 
@@ -30,6 +30,7 @@ public abstract class Noms { // classe outil, aucune instance de cette classe ne
 	}
 	
 	/*
+	
 	 // Décommenter cette partie pour tester 
 	 
 	public static void main(String[] args){
@@ -39,5 +40,6 @@ public abstract class Noms { // classe outil, aucune instance de cette classe ne
 		Noms.getNom() + "  " + Noms.getNom() + "  " + Noms.getNom()) ; 
 		return ; 
 	}
+	
 	*/
 }
