@@ -155,21 +155,21 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 	}
 	
 	public Creature getCreaturePlusRapide(){ // retourne la créature qui court le plus vite 
-		Creature tmpRapide = listeAmis.get(0) ;
+		Creature tempRapide = listeAmis.get(0) ;
 		
 		for(int i = 1 ; i < listeAmis.size() ; i ++){
-			if(tmpRapide.getVitesse() < (listeAmis.get(i)).getVitesse()) {
-				tmpRapide = listeAmis.get(i); 
+			if(tempRapide.getVitesse() < (listeAmis.get(i)).getVitesse()) {
+				tempRapide = listeAmis.get(i); 
 			}
 		}
 		
-		return tmpRapide;
+		return tempRapide;
 	}
 	
 	public int compterAccMangeable(){ // retourne le nombre d'accessoires mangeables 
 		int cpt = 0 ; // compteur 
 		for (int i = 0 ; i < listeAcc.size() ; i ++){
-			if (listeAcc.get(0) instanceof Mangeable){
+			if (listeAcc.get(i) instanceof Mangeable){
 				cpt ++ ;
 			}
 		}
@@ -194,6 +194,24 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 		si le voisin est un avatar, alors l'avatar salue (affiche une salutation) l'autre avatar 
 		Attention : l'avatar ne doit pas se saluer lui même
 	*/
+		ArrayList<Item> tempVoisins = monde.getVoisins((Item) this) ; 
+		Item tempVoisin ;
+		for (int i = 0 ; i < tempVoisins.size() ; i++){
+			tempVoisin = tempVoisins.get(i) ; 
+			if (tempVoisin instanceof Acc){
+				ramasser((Acc) tempVoisin) ; 
+			}
+			
+			if (tempVoisin instanceof Creature){
+				rencontrer((Creature) tempVoisin) ; 
+			}
+			
+			if (tempVoisin instanceof Avatar) {
+				if (tempVoisin == this){
+					System.out.println(this.toString() + " salue " + tempVoisin.toString()) ;
+				}
+			}
+		}
 		
 		return ; 
 	}
