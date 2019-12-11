@@ -233,11 +233,17 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 		do{
 			System.out.println("Entrer une abscisse entre [0, " + valeurMax + "] : ") ; 
 			x = scanner.nextInt() ;
+			if ((x < 0) || (x > valeurMax)){
+				System.out.println("Saisie non valide ! ") ; 
+			}
 		} while ((x < 0) || (x > valeurMax)) ;
 		
 		do{
 			System.out.println("Entrer une ordonnée entre [0, " + valeurMax + "] : ") ; 
 			y = scanner.nextInt() ; 
+			if ((y < 0) || (y > valeurMax)){
+				System.out.println("Saisie non valide ! ") ; 
+			}
 		} while ((y <0) || (y > valeurMax)) ; 
 		
 		System.out.print("Déplacement de " + this.getNomPersonnage() + " de (" + this.getX() + ", " + this.getY() + ") vers (") ; 
@@ -270,4 +276,12 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 		System.out.println("Fin du test de la méthode seDeplacer()") ; 
 	}
 	*/
+	
+	public ArrayList<Creature> getListeAmis(){ // retourne liste amis
+		return listeAmis ;
+	}
+	
+	public ArrayList<Acc> getListeAcc(){ // tetourne liste d'accessoires 
+		return listeAcc ;
+	}
 }

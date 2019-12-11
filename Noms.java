@@ -12,7 +12,7 @@ public abstract class Noms { // classe outil, aucune instance de cette classe ne
 	
 	/* Méthodes */
 	
-	public static String getNom(){ 
+	public static String getNom(){ // retourne un truc du genre Bob1 puis Fil1 puis Jaz1 puis Bob2, etc.
 		position ++ ; 
 		
 		if (position < TAB_NOMS.length){
@@ -31,7 +31,7 @@ public abstract class Noms { // classe outil, aucune instance de cette classe ne
 	
 	/*
 	
-	 // Décommenter cette partie pour tester 
+	 // Décommenter cette partie pour tester la méthode getNom() 
 	 
 	public static void main(String[] args){
 		System.out.println(Noms.getNom() + "  " + Noms.getNom() + "  " + Noms.getNom() + "  " +
