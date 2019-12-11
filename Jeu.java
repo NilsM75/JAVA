@@ -1,8 +1,115 @@
 public class Jeu {
 	public static void main (String [] args){ // Notre main de Jeu
-		System.out.println("Début du main de Jeu") ; 
+		// Partie 4 - Le jeu et ses améliorations 
 		
-		/* Test demandé numéro 1 */
+		// Q 15
+		
+		System.out.println("\nDébut du main du Jeu") ;
+		
+		// Création du monde 
+		Monde monde = new Monde(12) ;
+		System.out.println("Voici notre monde :\n" + monde.toString()) ; 
+		
+		// Populons ce monde 
+		// Ajout de 6 créatures dans le monde 
+		Creature creature1 = new Creature() ; 
+		monde.ajouterItem(creature1) ; 
+		System.out.println("Créature1 ajoutée :\n" + creature1.toString()) ; 
+		Creature creature2 = new Creature() ; 
+		monde.ajouterItem(creature2) ; 
+		System.out.println("Créature2 ajoutée :\n" + creature2.toString()) ; 
+		Creature creature3 = new Creature() ;
+		monde.ajouterItem(creature3) ; 		
+		System.out.println("Créature3 ajoutée :\n" + creature3.toString()) ; 
+		Creature creature4 = new Creature() ; 
+		monde.ajouterItem(creature4) ; 
+		System.out.println("Créature4 ajoutée :\n" + creature4.toString()) ; 
+		Creature creature5 = new Creature() ; 
+		monde.ajouterItem(creature5) ; 
+		System.out.println("Créature5 ajoutée :\n" + creature5.toString()) ; 
+		Creature creature6 = new Creature() ; 
+		monde.ajouterItem(creature6) ; 
+		System.out.println("Créature6 ajoutée :\n" + creature6.toString()) ; 		
+		// Ajout de 3 pommes dans le monde 
+		Pomme p1 = new Pomme() ; 
+		monde.ajouterItem(p1) ;
+		System.out.println("Pomme1 ajoutée :\n" + p1.toString()) ; 
+		Pomme p2 = new Pomme() ; 
+		monde.ajouterItem(p2) ; 
+		System.out.println("Pomme2 ajoutée :\n" + p2.toString()) ; 
+		Pomme p3 = new Pomme() ; 
+		monde.ajouterItem(p3) ;
+		System.out.println("Pomme3 ajoutée :\n" + p3.toString()) ; 
+		// Ajout de 3 sacs dans le monde 
+		Sac sac1 = new Sac() ; 
+		monde.ajouterItem(sac1) ;
+		System.out.println("sac1 ajouté :\n" + sac1.toString()) ; 
+		Sac sac2 = new Sac() ; 
+		monde.ajouterItem(sac2) ; 
+		System.out.println("sac2 ajouté :\n" + sac2.toString()) ; 
+		Sac sac3 = new Sac() ; 
+		monde.ajouterItem(sac3) ;
+		System.out.println("sac3 ajouté :\n" + sac3.toString()) ; 
+		// Monde généré avec succès, affichage du monde 
+		System.out.println("Voici le monde peuplé : " + monde.toString()) ; 
+		System.out.println("Affichons ce monde : ") ; 
+		monde.afficher() ; 
+		
+		// Il est temps d'ajouter deux avatars représentant chacun un joueur humain 
+		Avatar joueur1 = new Avatar() ; 
+		monde.ajouterItem(joueur1) ; 
+		System.out.println("Ajout du premier avatar/joueur :\n" + joueur1.toString()) ; 
+		Avatar joueur2 = new Avatar() ; 
+		monde.ajouterItem(joueur2) ; 
+		System.out.println("Ajout du deuxième avatar/joueur :\n" + joueur2.toString()) ; 
+		
+		// réaffichage du monde 
+		System.out.println("Voici le monde peuplé : " + monde.toString()) ; 
+		System.out.println("Affichons ce monde : ") ; 
+		monde.afficher() ; 
+		
+		// réalisation de 5 tours de jeu 
+		for(int tour = 0 ; tour < 5 ; tour ++){
+			// Annonce du round 
+			System.out.println("Round " + (tour + 1) + " : ") ;
+			// tour du joueur 1 
+			System.out.println("Tour du joueur " + joueur1.getNomPersonnage()) ; 
+			joueur1.seDeplacer() ; 
+			joueur1.rencontrerVoisins() ; 
+			// tour  du joueur 2 
+			System.out.println("Tour du joueur " + joueur2.getNomPersonnage()) ; 
+			joueur2.seDeplacer() ;
+			joueur2.rencontrerVoisins() ; 
+		}
+	
+		// réaffichage du monde 
+		System.out.println("Voici le monde peuplé : " + monde.toString()) ; 
+		System.out.println("Affichons ce monde : ") ; 
+		monde.afficher() ; 
+
+		
+		// réaffichage des joueurs  
+		System.out.println("premier avatar/joueur :\n" + joueur1.toString()) ;
+		System.out.println("deuxième avatar/joueur :\n" + joueur1.toString()) ;
+		
+		// Fin 5 tours, donc, il faut que chaque avatar réalise une course avec ses créatures 
+		System.out.println("\n\n\nScore Final") ; 
+		double j1 = joueur1.course() ; System.out.println("j1 = " + j1) ; 
+		double j2 = joueur2.course() ;  System.out.println("j2 = " + j2) ; 
+		if (j1 == j2) {
+			System.out.println("Match nul") ;
+		}
+		if (j1 > j2) {
+			System.out.println("Joueur1 gagne !") ; 
+		}
+		if (j1 < j2) {
+			System.out.println("Joueur2 gagne !") ; 
+		}
+		
+		System.out.println("\nFin du main du jeu") ; 		
+		/* // décommenter pour voir les tests des demandés avant la Partie 4
+		System.out.println("Début du main de Jeu") ; 
+		// Test demandé 1 
 		System.out.println("\nTest demandé numéro 1") ; 
 		Pomme p1 = new Pomme() ;
 		System.out.println("Pomme p1 crée :\t" + p1) ; 
@@ -20,7 +127,7 @@ public class Jeu {
 		sac1.ajouter(p2) ; 
 		System.out.println("Voici notre sac2 :\n" + sac2) ;
 		
-		/* Test demandé 2 */
+		// Test deamndé 2
 		System.out.println("\nTest demandé numéro 2") ;
 		
 		Creature c1 = new Creature() ;  // création d'une créature c1
@@ -50,7 +157,7 @@ public class Jeu {
 		System.out.println("La créature court après avoir manger toutes ses pommes \n") ; 
 		c1.courir() ; 
 		
-		/* Test demandé 3 */
+		// Test demandé 3
 		System.out.println("\nTest demandé numéro 3") ; 
 		Monde m = new Monde(5) ; // création d'un Monde de taille 5 
 		Creature cm1 = new Creature() ; 
@@ -71,6 +178,7 @@ public class Jeu {
 		m.afficher() ; 
 		
 		System.out.println("\nFin du main de Jeu") ; 
+		*/
 		return ; 
 	}
 }

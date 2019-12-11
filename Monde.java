@@ -136,4 +136,19 @@ public class Monde {
 	public int getTaille(){
 		return taille ; 
 	}
+	
+	@Override
+	public String toString(){ // retourne une chaine de caractère décrivant le monde 
+		String temp ; 
+		if (listeItems.size() == 0){
+			temp = new String(" ne contenant aucun items (vide).") ; 
+		} else {
+			temp = new String(" et d'items : \n") ; 
+		}
+		for(int i = 0 ; i < listeItems.size() ; i ++){
+			temp += ("item[" + i + "] : " + listeItems.get(i) + "\n") ; 
+		}
+
+		return ("Monde de taille égale à " + taille + temp) ; 
+	}
 }
