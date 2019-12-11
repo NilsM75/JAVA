@@ -16,7 +16,7 @@ public abstract class Noms { // classe outil, aucune instance de cette classe ne
 		position ++ ; 
 		
 		if (position < TAB_NOMS.length){
-			/* // à décommenter si on souhaite obtenir les noms sans les chiffres les 3 premiers appels successifs
+			/* // à décommenter si on souhaite obtenir les noms sans les chiffres rajoutès à la fin de ces derniers les 3 premiers appels successifs
 			if(cpt == 0){ 
 				return ("" + TAB_NOMS[position]) ; 
 			} */

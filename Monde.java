@@ -50,9 +50,16 @@ public class Monde {
 		return null ;
 	}
 	
-	public ArrayList<Item> getVoisins(Item item){
-		
-		return null ; // pour que cela compile
+	public ArrayList<Item> getVoisins(Item item){ 
+	/* retourne la liste des items qui sont à une distance <= 2 de l'item en paramètre 
+	   (la liste de voisins ne doit pas contenir l'item en paramètre) */
+		ArrayList<Item> temp = new ArrayList<Item>() ; 
+		for(int i = 0 ; i < listeItems.size() ; i ++){
+			if (Math.sqrt(Math.pow(((listeItems.get(i)).getX() - item.getX()), 2) + Math.pow(((listeItems.get(i)).getY() - item.getY()), 2)) <= 2.0d){
+				temp.add(listeItems.get(i)) ; 
+			}
+		}
+		return temp ;
 	}
 	
 	private static String getNomCourt(String nom){
