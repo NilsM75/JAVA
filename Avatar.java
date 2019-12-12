@@ -31,7 +31,8 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 		listeAcc = new ArrayList<Acc>() ;
 		monde = new Monde() ;
 	}
-
+	
+	// constructeur principal 
 	public Avatar(Monde monde) {
 		this() ;
 		this.monde = monde ;
@@ -76,7 +77,7 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 
 	public boolean estAmi (Creature c){ // retourne True si c est une amie, False sinon
 		for(int i = 0 ; i < listeAmis.size() ; i ++){
-			if((listeAmis.get(i)).equals(c)){
+			if((listeAmis.get(i)) == c){
 				return true ;
 			}
 		}
@@ -183,7 +184,7 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 	*/
 		listeAcc.add(a) ;
 		monde.supprimerItem(a) ;
-		System.out.println(this.toString() + " ramasse " + a.toString()) ;
+		System.out.println(this.toString() + " RAMASSE " + a.toString()) ;
 		return ;
 	}
 
@@ -208,7 +209,7 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 
 			if (tempVoisin instanceof Avatar) {
 				if (tempVoisin == this){
-					System.out.println(this.toString() + " salue " + tempVoisin.toString()) ;
+					System.out.println(this.toString() + " SALUE " + tempVoisin.toString() + " \"Salutations ! \" ") ;
 				}
 			}
 		}
@@ -231,7 +232,7 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 		Scanner scanner = new Scanner(System.in) ;
 
 		do{
-			System.out.println("Entrer une ordonée entre [0, " + valeurMax + "] : ") ;
+			System.out.println("Entrer une abscisse entre [0, " + valeurMax + "] : ") ;
 			x = scanner.nextInt() ;
 			if ((x < 0) || (x > valeurMax)){
 				System.out.println("Saisie non valide ! ") ;
@@ -239,7 +240,7 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 		} while ((x < 0) || (x > valeurMax)) ;
 
 		do{
-			System.out.println("Entrer une abscisse entre [0, " + valeurMax + "] : ") ; 
+			System.out.println("Entrer une ordonnée entre [0, " + valeurMax + "] : ") ; 
 			y = scanner.nextInt() ;
 			if ((y < 0) || (y > valeurMax)){
 				System.out.println("Saisie non valide ! ") ;
@@ -251,8 +252,8 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 		this.setY(y) ;
 		System.out.println(this.getX() + ", " + this.getY() + ")") ;
 
-		// Quand il se déplace, il "rencontre" ses voisins
-		rencontrerVoisins() ;
+		// Quand il se déplace, il "rencontre" automatiquement et forcément ses voisins
+		this.rencontrerVoisins() ;
 		return ;
 	}
 

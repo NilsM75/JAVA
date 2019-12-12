@@ -63,7 +63,7 @@ public class Sac extends Acc { // Un sac est un accessoire, Sac est une classe f
 	}
 	
 	@Override
-	public String toString(){
+	public String toString(){ // retourne une chaine de cractères contenant des information sur le sac 
 		String temp = new String() ; 
 		for (Acc acc : tab){
 			if (acc != null){ 
@@ -99,4 +99,8 @@ public class Sac extends Acc { // Un sac est un accessoire, Sac est une classe f
 		return tab ; 
 	}
 	
+	private void setTab(Acc[] tab){ // change le tab
+		this.tab = tab ; 
+		return ; 
+	}
 }

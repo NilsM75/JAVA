@@ -7,7 +7,7 @@ public class Jeu {
 		System.out.println("\nDébut du main du Jeu") ;
 
 		// Création du monde
-		Monde monde = new Monde(12) ;
+		Monde monde = new Monde() ;
 		System.out.println("Voici notre monde :\n" + monde.toString()) ;
 
 		// Populons ce monde
@@ -41,8 +41,8 @@ public class Jeu {
 		monde.ajouterItem(p3) ;
 		//System.out.println("Pomme3 ajoutée :\n" + p3.toString()) ;
 		// Ajout de BigMac dans le Monde
-		BigMac b1 = new BigMac();
-		monde.ajouterItem(b1);
+		//BigMac b1 = new BigMac();
+		//monde.ajouterItem(b1);
 		// Ajout de 3 sacs dans le monde
 		Sac sac1 = new Sac() ;
 		monde.ajouterItem(sac1) ;
@@ -82,12 +82,12 @@ public class Jeu {
 			// tour du joueur 1
 			System.out.println("Action de " + joueur1.getNomPersonnage()) ;
 			joueur1.seDeplacer() ;
-			System.out.println(joueur1) ;
+			System.out.println("Maj j1 :" + joueur1) ;
 			monde.afficher() ;
 			// tour  du joueur 2
 			System.out.println("Action de " + joueur2.getNomPersonnage()) ;
 			joueur2.seDeplacer() ;
-			System.out.println(joueur2) ;
+			System.out.println("Maj j2 :" + joueur2) ;
 			monde.afficher() ;
 		}
 		System.out.println("Fin") ;

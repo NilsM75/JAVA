@@ -113,7 +113,9 @@ public class Monde {
 		*/	
 		
 		// affichage première ligne (sans retour à la ligne)
-		System.out.print(getNomCourt("") + "|") ; 
+		// Décommenter la ligne d'en dessous si on souhaite avoir un affichage correspondant à l'exemple donné, l'affichage proposé montre x et y (meilleur)
+		//System.out.print(getNomCourt("") + "|") ; 
+		System.out.print(" x/y|") ; 
 		for(int i = 0 ; i < taille ; i ++){
 			System.out.print(getNomCourt(i+"") + "|") ; 
 		}
