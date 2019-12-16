@@ -4,14 +4,14 @@ public class Jeu {
 
 		// Q 15
 
-		System.out.println("\nDébut du main du Jeu") ;
+		System.out.println("\n*************************** Début du main du Jeu ***************************\n") ;
 
 		// Création du monde
-		Monde monde = new Monde() ;
-		System.out.println("Voici notre monde :\n" + monde.toString()) ;
-
+		Monde monde = new Monde(12) ;
+		//System.out.println("Voici notre monde :\n" + monde.toString()) ;
+/*
 		// Populons ce monde
-		// Ajout de 6 créatures dans le monde
+		// Ajout de 6 créatures dans le monde **************************************
 		Creature creature1 = new Creature() ;
 		monde.ajouterItem(creature1) ;
 		//System.out.println("Créature1 ajoutée :\n" + creature1.toString()) ;
@@ -26,11 +26,14 @@ public class Jeu {
 		//System.out.println("Créature4 ajoutée :\n" + creature4.toString()) ;
 		Creature creature5 = new Creature() ;
 		monde.ajouterItem(creature5) ;
-		//System.out.println("Créature5 ajoutée :\n" + creature5.toString()) ;
+*/		//System.out.println("Créature5 ajoutée :\n" + creature5.toString()) ;
 		Creature creature6 = new Creature() ;
 		monde.ajouterItem(creature6) ;
-		//System.out.println("Créature6 ajoutée :\n" + creature6.toString()) ;
-		// Ajout de 3 pommes dans le monde
+	//System.out.println("Créature6 ajoutée :\n" + creature6.toString()) ;
+		RonaldMcDonald ronald1 = new RonaldMcDonald();
+		monde.ajouterItem(ronald1) ;
+
+		// Ajout de 3 pommes dans le monde **************************************
 		Pomme p1 = new Pomme() ;
 		monde.ajouterItem(p1) ;
 		//System.out.println("Pomme1 ajoutée :\n" + p1.toString()) ;
@@ -40,10 +43,16 @@ public class Jeu {
 		Pomme p3 = new Pomme() ;
 		monde.ajouterItem(p3) ;
 		//System.out.println("Pomme3 ajoutée :\n" + p3.toString()) ;
-		// Ajout de BigMac dans le Monde
-		//BigMac b1 = new BigMac();
-		//monde.ajouterItem(b1);
-		// Ajout de 3 sacs dans le monde
+
+		// Ajout de BigMac dans le Monde **************************************
+		BigMac b1 = new BigMac();
+		monde.ajouterItem(b1);
+		BigMac b2 = new BigMac();
+		monde.ajouterItem(b2);
+		BigMac b3 = new BigMac();
+		monde.ajouterItem(b3);
+
+		// Ajout de 3 sacs dans le monde **************************************
 		Sac sac1 = new Sac() ;
 		monde.ajouterItem(sac1) ;
 		//System.out.println("sac1 ajouté :\n" + sac1.toString()) ;
@@ -53,10 +62,11 @@ public class Jeu {
 		Sac sac3 = new Sac() ;
 		monde.ajouterItem(sac3) ;
 		//System.out.println("sac3 ajouté :\n" + sac3.toString()) ;
+
 		// Monde généré avec succès, affichage du monde
-		System.out.println("Voici le monde peuplé : " + monde.toString()) ;
-		System.out.println("Affichons ce monde : ") ;
-		monde.afficher() ;
+		//System.out.println("Voici le monde peuplé : " + monde.toString()) ;
+		//System.out.println("Affichons ce monde : ") ;
+		//monde.afficher() ;
 
 		// Il est temps d'ajouter deux avatars représentant chacun un joueur humain
 		Avatar joueur1 = new Avatar(monde) ;
@@ -72,11 +82,11 @@ public class Jeu {
 		//monde.afficher() ;
 
 		// réalisation de 5 tours de jeu
-		System.out.println("monde : ") ; monde.afficher() ;
+		System.out.println("Monde : ") ; monde.afficher() ;
 		System.out.println("joueur1 : " + joueur1) ;
 		System.out.println("joueur2 : " + joueur2) ;
 		System.out.println("\n\n\n") ;
-		for(int tour = 1 ; tour < 6 ; tour ++){
+		for(int tour = 1 ; tour < 3 ; tour ++){
 			// Annonce du round
 			System.out.println("*** Tour " + tour + " ***") ;
 			// tour du joueur 1
@@ -102,7 +112,7 @@ public class Jeu {
 		//System.out.println("deuxième avatar/joueur :\n" + joueur1.toString()) ;
 
 		// Fin 5 tours, donc, il faut que chaque avatar réalise une course avec ses créatures
-		System.out.println("\n\n\nScore Final") ;
+		System.out.println("\n\n\n*************************** Score Final ***************************\n") ;
 		double j1 = joueur1.course() ; System.out.println("j1 = " + j1 + " kilometres") ;
 		double j2 = joueur2.course() ;  System.out.println("j2 = " + j2 + " kilometres") ;
 		if (j1 == j2) {
@@ -116,6 +126,8 @@ public class Jeu {
 		}
 
 		System.out.println("\nFin du main du jeu") ;
+
+
 		/* // décommenter pour voir les tests des demandés avant la Partie 4
 		System.out.println("Début du main de Jeu") ;
 		// Test demandé 1
