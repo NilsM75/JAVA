@@ -1,3 +1,5 @@
+import java.awt.*;
+import javax.swing.*;
 public abstract class Personnage extends Item { // abstract permet d'empecher la creation directe d'instance de cette classe
 	
 	/* Attributs */

@@ -1,3 +1,5 @@
+import java.awt.*;
+import javax.swing.*;
 public class Sac extends Acc { // Un sac est un accessoire, Sac est une classe fille d'Acc
 
 	/* Attribut, obligatoirement un seul attribut */

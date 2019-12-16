@@ -1,3 +1,5 @@
+import java.awt.*;
+import javax.swing.*;
 public abstract class Noms { // classe outil, aucune instance de cette classe ne peut être crée (abstraite)
 
 	/* Attributs */

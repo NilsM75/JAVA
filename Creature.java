@@ -1,3 +1,5 @@
+import java.awt.*;
+import javax.swing.*;
 public class Creature extends Personnage{ // créature est un personnage qui a un sac
 
 	/* Attributs */

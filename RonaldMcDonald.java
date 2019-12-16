@@ -1,3 +1,5 @@
+import java.awt.*;
+import javax.swing.*;
 public class RonaldMcDonald extends Creature{
 	/* Creation de la classe RonaldMcDonald qui est une créature qui court plus vite si celle-ci possède dans son sac un (ou plusieurs) bigMac
 		 Si celle-ci possède un élément mangeable de type légumes, elle court moins vite */

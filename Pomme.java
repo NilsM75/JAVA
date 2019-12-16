@@ -1,3 +1,5 @@
+import java.awt.*;
+import javax.swing.*;
 public class Pomme extends Acc implements Mangeable { // Une Pomme est un Accessoire qui a la propriété d'être Mangeable
 	
 	/* Attributs */

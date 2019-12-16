@@ -1,3 +1,5 @@
+import java.awt.*;
+import javax.swing.*;
 public class Jeu {
 	public static void main (String [] args){ // Notre main de Jeu
 		// Partie 4 - Le jeu et ses améliorations
@@ -7,7 +9,7 @@ public class Jeu {
 		System.out.println("\n*************************** Début du main du Jeu ***************************\n") ;
 
 		// Création du monde
-		Monde monde = new Monde(12) ;
+		Monde monde = new Monde(12, 6) ;
 		//System.out.println("Voici notre monde :\n" + monde.toString()) ;
 /*
 		// Populons ce monde
