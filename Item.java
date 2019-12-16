@@ -55,7 +55,7 @@ public abstract class Item {
 		return (Math.abs(x - item.x) + Math.abs(y - item.y)) ;
 	}
 	public void dessiner ( Graphics g , Monde m) {
-		int tc = m.getTailleCase ( ) ;
+		int tc = m.getTailleCase () ;
 		g.setColor(new Color(0, 0, 255 )) ; // couleur courante devient bleu
 		g.fillRect( getX()*tc , getY()*tc, tc, tc) ; // carré plein
 	}

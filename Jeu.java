@@ -9,7 +9,7 @@ public class Jeu {
 		System.out.println("\n*************************** Début du main du Jeu ***************************\n") ;
 
 		// Création du monde
-		Monde monde = new Monde(12, 6) ;
+		Monde monde = new Monde(12, 2) ;
 		//System.out.println("Voici notre monde :\n" + monde.toString()) ;
 /*
 		// Populons ce monde

@@ -23,6 +23,7 @@ public class Monde extends JPanel{
 	}
 
 	/* Méthodes */
+	// permet de dessiner chaque item dans le panneau
 	public void paintComponent (Graphics g) {
 		super.paintComponent (g) ; // redessine le panneau
 		for ( Item itemVoisin : listeItems ) {
