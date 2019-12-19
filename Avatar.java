@@ -2,6 +2,8 @@ import java.awt.*;
 import javax.swing.*;
 import java.util.Scanner ;
 import java.util.ArrayList ;
+import java.io.* ; 
+import javax.imageio.ImageIO ;
 
 public class Avatar extends Personnage { // Avatar est un personnage qui a une liste d'amis et une liste d'accessoires
 
@@ -288,5 +290,19 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 
 	public ArrayList<Acc> getListeAcc(){ // tetourne liste d'accessoires
 		return listeAcc ;
+	}
+	
+	public void dessiner(Graphics g, Monde m){
+		int tc = m.getTailleCase();
+		int a = (tc / 2) ; // echelle réduite 
+		File avatar;
+		Image image;
+		try {
+			petitmonstre = new File("./images/avatar.png");
+			image = ImageIO.read(avatar);
+			g.drawImage(image, getX()*tc-a, getY()*tc-a, tc+a, tc+a, m); 
+		} catch (IOException e){
+			System.out.println(e.getMessage());
+		}	
 	}
 }

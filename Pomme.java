@@ -1,5 +1,8 @@
 import java.awt.*;
 import javax.swing.*;
+import javax.imagio.ImageIO ; 
+import java.io.* ; 
+
 public class Pomme extends Acc implements Mangeable { // Une Pomme est un Accessoire qui a la propriété d'être Mangeable
 
 	/* Attributs */
@@ -40,5 +43,18 @@ public class Pomme extends Acc implements Mangeable { // Une Pomme est un Access
 		this.rayon = rayon ;
 		return ;
 	}
+	
+	public void dessiner(Graphics g, Monde m) {
+		int tc = m.getTailleCase();
+		File pomme;
+		Image image;
 
+		try {
+			pomme = new File("./images/pomme.png");
+			image = ImageIO.read(pomme);
+			g.drawImage(image, getX()*tc, getY()*tc, tc/2, tc/2, m); 
+		} catch (IOException e){
+			System.out.println(e.getMessage());
+		}		
+	}
 }

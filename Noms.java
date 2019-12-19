@@ -44,4 +44,13 @@ public abstract class Noms { // classe outil, aucune instance de cette classe ne
 	}
 	
 	*/
+	
+	public static String getTabNoms(int i){
+		return tabNoms[i] ; 
+	}
+	
+	public static int getTabLength(){
+		return tabNoms.length ; 
+	}
+	
 }

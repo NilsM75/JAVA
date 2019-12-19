@@ -1,7 +1,47 @@
-import java.awt.*;
-import javax.swing.*;
+import java.awt.* ;
+import java.swing.* ;
+import java.util.Scanner ; 
+
 public class Jeu {
+	
+	/* Constantes pour qu'on puisse les modifier à notre guise ici, pour plus de tests */
+	private static final int TAILLE_CASE = 80 ;
+	private static final int NB_CASES = 10 ;
+	private static final int NB_CREATURES = 8 ;
+	
 	public static void main (String [] args){ // Notre main de Jeu
+	
+		//Création fenêtre graphique et ses caractéristiques
+		JFrame f = new JFrame();
+
+		f.setLocationRelativeTo(null);
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		//Création du monde en mode panneau 
+		Monde m = new Monde(NB_CASES, TAILLE_CASE);
+
+		f.setContentPane(m); // le monde est ajouté à la fenêtre
+		f.pack(); // la dite fenêtre est adaptée au panneau 
+		f.setVisible(true); // visible OK 
+		
+		System.out.println("@\t|Créatures et Avatars|\t@");
+
+		m.repaint(); 
+
+		/* Tours de jeu. */
+		//m.repaint() à chaque tour
+
+
+		System.exit(0);
+		
+		return ; 
+	} // en dessous, il y a les anciens tests demandés, à mettre dans le main 
+	
+		/*
+		
+		
+		//Décommenter pour test 
+		
 		// Partie 4 - Le jeu et ses améliorations
 
 		// Q 15
@@ -9,9 +49,9 @@ public class Jeu {
 		System.out.println("\n*************************** Début du main du Jeu ***************************\n") ;
 
 		// Création du monde
-		Monde monde = new Monde(12, 2) ;
+		Monde monde = new Monde() ;
 		//System.out.println("Voici notre monde :\n" + monde.toString()) ;
-/*
+
 		// Populons ce monde
 		// Ajout de 6 créatures dans le monde **************************************
 		Creature creature1 = new Creature() ;
@@ -28,10 +68,10 @@ public class Jeu {
 		//System.out.println("Créature4 ajoutée :\n" + creature4.toString()) ;
 		Creature creature5 = new Creature() ;
 		monde.ajouterItem(creature5) ;
-*/		//System.out.println("Créature5 ajoutée :\n" + creature5.toString()) ;
+		//System.out.println("Créature5 ajoutée :\n" + creature5.toString()) ;
 		Creature creature6 = new Creature() ;
 		monde.ajouterItem(creature6) ;
-	//System.out.println("Créature6 ajoutée :\n" + creature6.toString()) ;
+		//System.out.println("Créature6 ajoutée :\n" + creature6.toString()) ;
 		RonaldMcDonald ronald1 = new RonaldMcDonald();
 		monde.ajouterItem(ronald1) ;
 
@@ -129,7 +169,7 @@ public class Jeu {
 
 		System.out.println("\nFin du main du jeu") ;
 
-
+		*/
 		/* // décommenter pour voir les tests des demandés avant la Partie 4
 		System.out.println("Début du main de Jeu") ;
 		// Test demandé 1

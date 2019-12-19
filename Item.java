@@ -54,9 +54,15 @@ public abstract class Item {
 	public int distance (Item item) { // retorune distance de Manhattan
 		return (Math.abs(x - item.x) + Math.abs(y - item.y)) ;
 	}
-	public void dessiner ( Graphics g , Monde m) {
+	
+	/* // ancienne version faite de dessiner (moins complexe, plus simple mais moins satisfaisant)
+	public void dessiner (Graphics g , Monde m) {
 		int tc = m.getTailleCase () ;
 		g.setColor(new Color(0, 0, 255 )) ; // couleur courante devient bleu
 		g.fillRect( getX()*tc , getY()*tc, tc, tc) ; // carré plein
 	}
+	*/
+	
+	public abstract void dessiner(Graphics g, Monde m) ; 
+	
 }

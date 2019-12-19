@@ -1,6 +1,8 @@
 import java.awt.*;
 import javax.swing.*;
 import java.util.ArrayList ;
+import javax.imageio.ImageIO;
+import java.io.*;
 
 public class Monde extends JPanel{
 	/* les personnages et les acccessoires se trouvent dans un monde de forme carrée */
@@ -8,15 +10,16 @@ public class Monde extends JPanel{
 	/* Attributs */
 	private ArrayList<Item> listeItems ; // liste d'items
 	private int taille ; // taille du monde
-	private int tailleCase ;
+	private int tailleCase ; // nombre de pixels d'une case dans le JPanel 
 
 	/* Constructeurs */
 	public Monde() {
+		setPreferredSize(new Dimension(taille * tailleCase, taille * tailleCase)) ; 
 		taille = 5 ;
 		listeItems = new ArrayList<Item>() ;
 	}
 	public Monde(int taille, int tailleCase){
-		setPreferredSize(new Dimension ( taille*tailleCase , taille*tailleCase ) ) ;
+		setPreferredSize(new Dimension ( taille * tailleCase , taille * tailleCase ) ) ;
 		this.tailleCase = tailleCase ;
 		this.taille = taille ;
 		listeItems = new ArrayList<Item>() ;
@@ -26,8 +29,15 @@ public class Monde extends JPanel{
 	// permet de dessiner chaque item dans le panneau
 	public void paintComponent (Graphics g) {
 		super.paintComponent (g) ; // redessine le panneau
-		for ( Item itemVoisin : listeItems ) {
-			if ( itemVoisin != null ) {
+		setBackground(new Color(150, 207, 60)) ;  // bleu
+		for (int i = 0 ; i < taille ; i ++) {
+			for (int j = 0; j < taille ; j ++){
+				g.setColor(new Color(255, 255, 255)) ; 
+				g.drawRect(i * tailleCase, tailleCase, tailleCase) ; 
+			}
+		}
+		for (Item itemVoisin : listeItems) {
+			if (itemVoisin != null) {
 				itemVoisin.dessiner(g, this) ;
 			}
 		}
@@ -36,7 +46,7 @@ public class Monde extends JPanel{
 	public int getPositionAlea(){
 	/*  retourne une position enitère aléatoire dans le monde,
 		méthode utilisée pour donner des valeurs aussi bien pour les abscisses que pour les ordonnées */
-		return ((int)(Math.random() * (taille - 1))) ; // entier entre 0 et la (taille - 1)
+		return ((int)(Math.random() * (taille - 1))) ; // entier entre 0 et la (taille - 1) pour que ca se place directement dans le monde 
 	}
 
 	public void ajouterItem(Item item){ // initialise aléatoirement l'abscisse et l'ordonnée de l'item et l'ajoute dans le monde
@@ -169,5 +179,21 @@ public class Monde extends JPanel{
 		}
 
 		return ("Monde de taille égale à " + taille + temp) ;
+	}
+	
+	public void dessiner(Graphics g, Monde m) {
+
+		int tc = m.getTailleCase();
+		int a = tc/2; 
+		File x;
+		Image image;
+
+		try {
+			x = new File("./images/x.png");
+			image = ImageIO.read(x);
+			g.drawImage(image, getX()*tc-a, getY()*tc-a, tc+a, tc+a, m); 
+		} catch (IOException e){
+			System.out.println(e.getMessage());
+		}
 	}
 }

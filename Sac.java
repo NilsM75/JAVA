@@ -1,5 +1,8 @@
 import java.awt.*;
 import javax.swing.*;
+import java.io.* ; 
+import javax.imageio.ImageIO ;
+
 public class Sac extends Acc { // Un sac est un accessoire, Sac est une classe fille d'Acc
 
 	/* Attribut, obligatoirement un seul attribut */
@@ -104,5 +107,20 @@ public class Sac extends Acc { // Un sac est un accessoire, Sac est une classe f
 	private void setTab(Acc[] tab){ // change le tab
 		this.tab = tab ; 
 		return ; 
+	}
+	public void dessiner(Graphics g, Monde m) {
+
+		int tc = m.getTailleCase();
+
+		File sac;
+		Image image;
+
+		try {
+			sac = new File("./images/sac.png");
+			image = ImageIO.read(sac);
+			g.drawImage(image, getX()*tc, getY()*tc, tc, tc, m); 
+		} catch (IOException e){
+			System.out.println(e.getMessage());
+		}	
 	}
 }
