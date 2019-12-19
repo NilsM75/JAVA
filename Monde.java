@@ -33,7 +33,7 @@ public class Monde extends JPanel{
 		for (int i = 0 ; i < taille ; i ++) {
 			for (int j = 0; j < taille ; j ++){
 				g.setColor(new Color(255, 255, 255)) ; 
-				g.drawRect(i * tailleCase, tailleCase, tailleCase) ; 
+				g.drawRect(i*tailleCase, tailleCase, tailleCase, tailleCase) ; 
 			}
 		}
 		for (Item itemVoisin : listeItems) {

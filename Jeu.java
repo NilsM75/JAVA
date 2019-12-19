@@ -1,6 +1,8 @@
 import java.awt.* ;
-import java.swing.* ;
+import javax.swing.* ;
 import java.util.Scanner ; 
+import javax.imageio.ImageIO;
+import java.io.*;
 
 public class Jeu {
 	
@@ -242,6 +244,6 @@ public class Jeu {
 
 		System.out.println("\nFin du main de Jeu") ;
 		*/
-		return ;
-	}
+		
+		
 }

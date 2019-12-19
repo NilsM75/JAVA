@@ -7,7 +7,7 @@ public class Creature extends Personnage{ // créature est un personnage qui a u
 
 	/* Attributs */
 	private Sac leSac ; // sac de la créature
-
+	private static int cptC = 0 ; //  compteur static utilitaire
 	/* Constructeurs */
 	public Creature (){
 		super(Noms.getNom()) ; // appel au constructeur Personnage(Noms.getNom())

@@ -1,6 +1,6 @@
 import java.awt.*;
 import javax.swing.*;
-import javax.imagio.ImageIO ; 
+import javax.imageio.ImageIO ; 
 import java.io.* ; 
 
 public class Pomme extends Acc implements Mangeable { // Une Pomme est un Accessoire qui a la propriété d'être Mangeable
@@ -24,7 +24,21 @@ public class Pomme extends Acc implements Mangeable { // Une Pomme est un Access
 		g.setColor(new Color(255, 0, 0)) ; // couleur courante devient rouge
 		g.fillOval( getX()*tc, getY()*tc, tc, tc) ; // cercle plein
 	}
-	
+		/* // si on veut utiliser une image 
+		public void dessiner(Graphics g, Monde m) {
+		int tc = m.getTailleCase();
+		File pomme;
+		Image image;
+
+		try {
+			pomme = new File("./images/pomme.png");
+			image = ImageIO.read(pomme);
+			g.drawImage(image, getX()*tc, getY()*tc, tc/2, tc/2, m); 
+		} catch (IOException e){
+			System.out.println(e.getMessage());
+		}		
+	}
+	*/
 	@Override
 	public String toString(){
 		return String.format("%s %.2fcm", super.toString(), rayon) ; // toString d'Acc
@@ -44,17 +58,5 @@ public class Pomme extends Acc implements Mangeable { // Une Pomme est un Access
 		return ;
 	}
 	
-	public void dessiner(Graphics g, Monde m) {
-		int tc = m.getTailleCase();
-		File pomme;
-		Image image;
 
-		try {
-			pomme = new File("./images/pomme.png");
-			image = ImageIO.read(pomme);
-			g.drawImage(image, getX()*tc, getY()*tc, tc/2, tc/2, m); 
-		} catch (IOException e){
-			System.out.println(e.getMessage());
-		}		
-	}
 }

@@ -1,6 +1,6 @@
 import java.awt.*;
 import javax.swing.*;
-public class BigMac extends Acc implements Mangeable {
+public abstract class BigMac extends Acc implements Mangeable {
 
   /* Attributs */
   private String[] tab = new String[] {"Bien gras", "Delicieux", "Fat de ouf"} ;

@@ -298,7 +298,7 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 		File avatar;
 		Image image;
 		try {
-			petitmonstre = new File("./images/avatar.png");
+			avatar = new File("./images/avatar.png");
 			image = ImageIO.read(avatar);
 			g.drawImage(image, getX()*tc-a, getY()*tc-a, tc+a, tc+a, m); 
 		} catch (IOException e){
