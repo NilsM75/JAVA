@@ -103,24 +103,17 @@ public class Sac extends Acc { // Un sac est un accessoire, Sac est une classe f
 	public Acc[] getTab(){ // retourne le tableau d'accessoires 
 		return tab ; 
 	}
-	
+			
+		
+		
+		
 	private void setTab(Acc[] tab){ // change le tab
 		this.tab = tab ; 
 		return ; 
 	}
+
+	// sert à rien dans cette version
 	public void dessiner(Graphics g, Monde m) {
-
-		int tc = m.getTailleCase();
-
-		File sac;
-		Image image;
-
-		try {
-			sac = new File("./images/sac.png");
-			image = ImageIO.read(sac);
-			g.drawImage(image, getX()*tc, getY()*tc, tc, tc, m); 
-		} catch (IOException e){
-			System.out.println(e.getMessage());
-		}	
+		return ; 
 	}
 }
