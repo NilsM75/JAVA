@@ -1,6 +1,6 @@
 import java.awt.*;
 import javax.swing.*;
-public abstract class BigMac extends Acc implements Mangeable {
+public class BigMac extends Acc implements Mangeable {
 
   /* Attributs */
   private String[] tab = new String[] {"Bien gras", "Delicieux", "Fat de ouf"} ;
@@ -12,7 +12,7 @@ public abstract class BigMac extends Acc implements Mangeable {
   public BigMac() {
     super("BigMac") ; // Appel au cosntructeur Acc(categorie)
     adjectif = tab [((int)Math.random()*3+0)] ;
-    poids = Math.random() ;
+    poids = 0.6 ; //le poids du BigMac est toujours identique pcq chez Macdo c'est pro :)
   }
 
   /* Méthodes */
@@ -24,5 +24,8 @@ public abstract class BigMac extends Acc implements Mangeable {
 
   public double getPoids(){ // retourne le poids de la pomme
     return poids ;
+  }
+  public void dessiner (Graphics g, Monde m){
+    return ;
   }
 }

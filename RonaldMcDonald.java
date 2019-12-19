@@ -6,6 +6,7 @@ public class RonaldMcDonald extends Creature{
 	/* Attributs */
 	private static int cptBigMac = 0;
 	//private static cptCarotte = 0;
+	private static double tempV = 0;
 
 	/* Constructeurs */
 	public RonaldMcDonald (){
@@ -16,15 +17,26 @@ public class RonaldMcDonald extends Creature{
 	@Override // je souhaite réécrire la methode getVitesse() de Creature
 	public double getVitesse(){
 	// retourne la vitesse à laquelle peut courir la créature
-		Sac sacRonald = getLeSac(); // j'ai écris un accesseur getLeSac() dans Creature car leSac est private
-		Acc temp;
+		Sac sacRonald = super.getLeSac(); // j'ai écris un accesseur getLeSac() dans Creature car leSac est private
+		System.out.println("je commence") ; 
 		for(int i=0; i < sacRonald.size(); i++){ //size() est dans la classe Sac
-			temp = sacRonald.obtenir(i); //obtenir() est dans la classe Sac
-			if(temp.getCategorie() == "BigMac"){ //si le nom de l'accessoire est BigMac, j'incrémente mon compteur
-				cptBigMac++;
+			System.out.println("je suis dans le sac") ;
+			if(sacRonald.obtenir(i) != null){ System.out.println("j ai un truc dans le sac") ;
+				if((sacRonald.obtenir(i)) instanceof BigMac){ //si le nom de l'accessoire est BigMac, j'incrémente mon compteur
+					cptBigMac++;
+					System.out.println("Youhou je vais pouvoir courir plus vite!");
+				}
 			}
 		}
+		System.out.println("je finis") ;
 		double v = (0.250d * super.getPoids()) - (sacRonald.getPoids()) + cptBigMac*2 ; // 1.0/4.0 = 0.250	//plus il mange de BigMac PLUS la vitesse est gde
+		if(tempV != 0){
+			tempV = v;
+			System.out.println("vitesse changee");
+		}
+		if(v == tempV){
+			System.out.println("Erreur la vitesse de ronald n'a pas été augmentéé");
+		}
 		if (v < 0.0d){
 			v = 0.0d ;
 		}

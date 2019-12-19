@@ -1,6 +1,6 @@
 import java.awt.*;
 import javax.swing.*;
-import javax.imageio.ImageIO ; 
+import javax.imageio.ImageIO ;
 import java.io.* ;
 
 public class Creature extends Personnage{ // créature est un personnage qui a un sac
@@ -83,7 +83,7 @@ public class Creature extends Personnage{ // créature est un personnage qui a u
 	public Sac getLeSac(){
 		return leSac;
 	}
-	
+
 	public void dessiner(Graphics g, Monde m) {
 		int tc = m.getTailleCase();
 		File creature;
@@ -92,7 +92,7 @@ public class Creature extends Personnage{ // créature est un personnage qui a u
 			try {
 				creature = new File("./images/creature.png");
 				image = ImageIO.read(creature);
-				g.drawImage(image, getX()*tc, getY()*tc, tc/2, tc/2, m); 
+				g.drawImage(image, getX()*tc, getY()*tc, tc/2, tc/2, m);
 			} catch (IOException e){
 				System.out.println(e.getMessage());
 			}
@@ -100,12 +100,12 @@ public class Creature extends Personnage{ // créature est un personnage qui a u
 			try {
 				creature = new File("./images/creature1.png");
 				image = ImageIO.read(creature);
-				g.drawImage(image, getX()*tc, getY()*tc, tc/2, tc/2, m); 
+				g.drawImage(image, getX()*tc, getY()*tc, tc/2, tc/2, m);
 			} catch (IOException e){
 				System.out.println(e.getMessage());
 			}
 		}
 		cptC ++ ;
-		return ; 
+		return ;
 	}
 }
