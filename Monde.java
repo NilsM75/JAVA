@@ -27,20 +27,26 @@ public class Monde extends JPanel{
 
 	/* Méthodes */
 	// permet de dessiner chaque item dans le panneau
-	public void paintComponent (Graphics g) {
-		super.paintComponent (g) ; // redessine le panneau
-		setBackground(new Color(150, 207, 60)) ;  // bleu
-		for (int i = 0 ; i < taille ; i ++) {
-			for (int j = 0; j < taille ; j ++){
-				g.setColor(new Color(255, 255, 255)) ; 
-				g.drawRect(i*tailleCase, tailleCase, tailleCase, tailleCase) ; 
+	public void paintComponent(Graphics g){
+
+		super.paintComponent(g); //redessine le panneau
+
+		// setBackground(new Color(150, 207, 60));
+		setBackground(new Color(177, 217, 147));
+
+		for (int i = 0; i < taille; i++){
+			for (int j = 0; j < taille; j++){
+				g.setColor(new Color(255, 255, 255)); 
+				g.drawRect(i*tailleCase, j*tailleCase, tailleCase, tailleCase);
 			}
-		}
-		for (Item itemVoisin : listeItems) {
+		}		
+
+		for (Item itemVoisin: listeItems) {
 			if (itemVoisin != null) {
-				itemVoisin.dessiner(g, this) ;
+				itemVoisin.dessiner(g, this);
 			}
 		}
+
 	}
 
 	public int getPositionAlea(){
@@ -180,20 +186,5 @@ public class Monde extends JPanel{
 
 		return ("Monde de taille égale à " + taille + temp) ;
 	}
-	
-	public void dessiner(Graphics g, Monde m) {
 
-		int tc = m.getTailleCase();
-		int a = tc/2; 
-		File x;
-		Image image;
-
-		try {
-			x = new File("./images/x.png");
-			image = ImageIO.read(x);
-			g.drawImage(image, getX()*tc-a, getY()*tc-a, tc+a, tc+a, m); 
-		} catch (IOException e){
-			System.out.println(e.getMessage());
-		}
-	}
 }
