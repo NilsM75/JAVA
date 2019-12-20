@@ -1,11 +1,12 @@
 import java.awt.*;
 import javax.swing.*;
+import javax.imageio.ImageIO;
+import java.io.*;
+
 public class RonaldMcDonald extends Creature{
-	/* Creation de la classe RonaldMcDonald qui est une créature qui court plus vite si celle-ci possède dans son sac un (ou plusieurs) bigMac
-		 Si celle-ci possède un élément mangeable de type légumes, elle court moins vite */
+	/* Creation de la classe RonaldMcDonald qui est une créature qui court plus vite si celle-ci possède dans son sac un (ou plusieurs) bigMac */
 	/* Attributs */
 	private static int cptBigMac = 0;
-	//private static cptCarotte = 0;
 
 	/* Constructeurs */
 	public RonaldMcDonald (){
@@ -29,5 +30,22 @@ public class RonaldMcDonald extends Creature{
 			v = 0.0d ;
 		}
 		return v ;
+	}
+
+	public void dessiner(Graphics g, Monde m){
+
+		int tc = m.getTailleCase();
+
+		File Ronald;
+		Image image;
+
+		try {
+			Ronald = new File("./images/Ronald.png");
+			image = ImageIO.read(Ronald);
+			g.drawImage(image, getX()*tc, getY()*tc, tc, tc, m); 
+		} catch (IOException e){
+		System.out.println(e.getMessage());
+		}
+
 	}
 }

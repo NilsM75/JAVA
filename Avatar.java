@@ -236,7 +236,7 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 		Scanner scanner = new Scanner(System.in) ;
 
 		do{
-			System.out.println("Entrer une ordonnée entre [0, " + valeurMax + "] : ") ;
+			System.out.println("Entrer une abscisse entre [0, " + valeurMax + "] : ") ;
 			x = scanner.nextInt() ;
 			if ((x < 0) || (x > valeurMax)){
 				System.out.println("Saisie non valide ! ") ;
@@ -244,7 +244,7 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 		} while ((x < 0) || (x > valeurMax)) ;
 
 		do{
-			System.out.println("Entrer une abscisse entre [0, " + valeurMax + "] : ") ;
+			System.out.println("Entrer une ordonnée entre [0, " + valeurMax + "] : ") ;
 			y = scanner.nextInt() ;
 			if ((y < 0) || (y > valeurMax)){
 				System.out.println("Saisie non valide ! ") ;

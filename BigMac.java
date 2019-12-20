@@ -41,22 +41,21 @@ public class BigMac extends Acc implements Mangeable {
     return poids ;
   }
   
-  	public void dessiner(Graphics g, Monde m) {
+  public void dessiner(Graphics g, Monde m) {
 
-		int tc = m.getTailleCase();
-		int tc2 = tc/2;
+	int tc = m.getTailleCase();
+	int tc2 = tc/2;
 
-		File bm;
-		Image image;
+	File bm;
+	Image image;
 
-		try {
-			bm = new File("./images/bm.png");
-			image = ImageIO.read(bm);
-			g.drawImage(image, getX()*tc, getY()*tc+tc2, tc, tc-tc2, m); 
-		} catch (IOException e){
-			System.out.println(e.getMessage());
-		}
-
-	}
+	try {
+		bm = new File("./images/bm.png");
+		image = ImageIO.read(bm);
+		g.drawImage(image, getX()*tc, getY()*tc+tc2, tc, tc-tc2, m); 
+	    } catch (IOException e){
+		System.out.println(e.getMessage());
+	      }
+  }
 
 }

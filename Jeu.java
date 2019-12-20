@@ -64,7 +64,7 @@ public class Jeu {
 
 		// Choix du nombre de joueurs.
 		do{
-			System.out.println("Tapez 1 pour lancer le mode 1 joueur\n2- Tapez 2 pour lancer le mode 2 joueurs\n3- Tapez 3 pour lancer le mode 3 joueurs\n4- Tapez 4 pour lancer le mode 4 joueurs");
+			System.out.println("1-Tapez 1 pour lancer le mode 1 joueur\n2- Tapez 2 pour lancer le mode 2 joueurs\n3- Tapez 3 pour lancer le mode 3 joueurs\n4- Tapez 4 pour lancer le mode 4 joueurs");
 			nbJoueurs = scanner.nextInt();
 		} while (nbJoueurs < 1 || nbJoueurs > 4);
 
@@ -77,7 +77,6 @@ public class Jeu {
 
 		m.repaint(); 
 
-		/* Tours de jeu. */
 		for (int i = 0; i < 5; i++) {
 			for (int j = 0; j < nbJoueurs; j++) {
 				Thread.sleep(1000); 
@@ -87,23 +86,22 @@ public class Jeu {
 			}
 		}
 
-		double distanceMax = 0.0;
+		double max = tabAvatars[0].course() ; 
 		Avatar gagnant = null;
-		
-		/* Course et calcule du gagnant. */
-		for (int i = 0; i < nbJoueurs; i++){
+	
+		for (int i = 1; i < nbJoueurs; i++){
 			double distance = tabAvatars[i].course();
-			if (distance > distanceMax){
-				distanceMax = distance;
+			if (distance > max){
+				max = distance;
 				gagnant = tabAvatars[i]; 
 			}
-			System.out.println("Distance parcourue par les amis de "+tabAvatars[i].getNomPersonnage()+" : "+distance);
+			System.out.println("Score de " + tabAvatars[i].getNomPersonnage() + " est " + distance + " Km");
 		}
 
 		if (gagnant != null){
-			System.out.println(gagnant.getNomPersonnage() + " !");
+			System.out.println(gagnant.getNomPersonnage() + " WINS");
 		} else {
-			System.out.println("Il n'y a pas de gagnant.");
+			System.out.println("Match nul");
 		}
 
 		System.exit(0);
@@ -204,7 +202,6 @@ public class Jeu {
 		System.out.println("joueur2 : " + joueur2) ;
 		System.out.println("\n\n\n") ;
 		for(int tour = 1 ; tour < 3 ; tour ++){
-			// Annonce du round
 			System.out.println("*** Tour " + tour + " ***") ;
 			// tour du joueur 1
 			System.out.println("Action de " + joueur1.getNomPersonnage()) ;
