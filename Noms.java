@@ -4,11 +4,11 @@ public abstract class Noms { // classe outil, aucune instance de cette classe ne
 
 	/* Attributs */
 	
-	private final static String[] TAB_NOMS = new String[] {"Bob", "Fil", "Jaz"} ; // tableau qui contient les noms choisis
+	private final static String[] TAB_NOMS = new String[] {"Bob", "Fil", "Jaz", "Mou"} ; // tableau qui contient les noms choisis
 	private static int cpt = 0 ; // compteur du nombre de fois que le tableau est parcouru
 	private static int position = (-1) ; // donne la position courante dans le tableau
 
-	/* Constructeurs */
+	/* Pas de Constructeurs */
 	
 	private Noms() { }
 	
@@ -44,5 +44,17 @@ public abstract class Noms { // classe outil, aucune instance de cette classe ne
 	}
 	
 	*/
+	
+	public static String[] getTabNoms() {
+		return TAB_NOMS ; 
+	}
+	
+	public static String getTabNoms(int i){
+		return TAB_NOMS[i] ; 
+	}
+	
+	public static int getTabLength(){
+		return TAB_NOMS.length ; 
+	}
 	
 }

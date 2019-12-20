@@ -36,33 +36,21 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 		monde = new Monde() ;
 	}
 
-	
+	// constructeur principal
 	public Avatar(Monde monde) {
 		this() ;
 		this.monde = monde ;
 	}
-	// Les deux constructeurs importants ! 
-	public Avatar (String nom, double poids, Monde monde){ // la position est aléatoire 
-		super(nom, poids) ; 
-		this(nom, poids) ; // voir au dessus, constructeur de pseudo signature (String, double)
+
+	public Avatar (String nom, double poids, Monde monde){
+		this(nom, poids) ;
 		this.monde = monde ;
-		monde.ajouterItem((Item) this) ; // ajout de l'avatar au monde 
 	}
 
-	public Avatar(String nom, Monde monde) { // la position est aléatoire mais aussi le poids 
-		super(nom);
-		listeAmis = new ArrayList<Creature>();
-		listeAcc = new ArrayList<Acc>();
-		this.monde = monde;
-		monde.ajouterItem((Item) this);
-	}
-	
-	/* // ancien constructeur 
 	public Avatar(String nom, Monde monde){
 		this(nom) ;
 		this.monde = monde ;
-	} 
-	*/
+	}
 
 	/* Méthodes */
 
@@ -102,24 +90,22 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 
 	public void devenirAmi (Creature c){ // fait devenir ami l'avatar avec la créature c (s'ils ne sont pas amis)
 		if (estAmi(c)){
-			System.out.println(this.getNom() + " EST DEJA AMI AVEC " + c.getNom()) ; 
 			return ;
 		}
 
 		listeAmis.add(c) ;
-		System.out.println(this.getNom() + " DEVIENT AMI AVEC " + c.getNom()) ;
+		System.out.println(this.toString() + " devient ami avec " + c.toString()) ;
 
 		return ;
 	}
 
 	public void perdreAmi (Creature c){ // fait perdre l'avatar son ami c (s'ils sont amis)
 		if (!estAmi(c)){
-			System.out.println(this.getNom() + " N EST PAS AMI AVEC " + c.getNom()) ; 
 			return ;
 		}
 
 		listeAmis.remove(listeAmis.indexOf(c)) ;
-		System.out.println(this.getNom() + "A ROMPU SON LIEN D'AMITIE AVEC " + c.getNom()) ;
+		System.out.println(this.toString() + "a rompu son lien d'amitié avec " + c.toString()) ;
 
 		return ;
 	}
@@ -202,7 +188,7 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 	*/
 		listeAcc.add(a) ;
 		monde.supprimerItem(a) ;
-		System.out.println(this.getNom() + " RAMASSE " + a.getNom()) ;
+		System.out.println(this.toString() + " RAMASSE " + a.toString()) ;
 		return ;
 	}
 
@@ -309,8 +295,8 @@ public class Avatar extends Personnage { // Avatar est un personnage qui a une l
 	public void dessiner(Graphics g, Monde m){
 		int tc = m.getTailleCase();
 		int a = (tc / 2) ; // echelle réduite 
-		File avatar ;
-		Image image ;
+		File avatar;
+		Image image;
 		try {
 			avatar = new File("./images/avatar.png");
 			image = ImageIO.read(avatar);

@@ -8,7 +8,7 @@ public abstract class Acc extends Item { // Acc pour accessoire
 
 	/* Constructeurs */
 	
-	public Acc (String categorie) { // constructeur, position aléatoire dans le monde
+	public Acc (String categorie) {
 		super(categorie) ; // appel au constructeur Item(categorie)
 		this.categorie = categorie ; 
 		cpt ++ ; 

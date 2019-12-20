@@ -1,5 +1,6 @@
 import java.awt.*;
 import javax.swing.*;
+
 public abstract class Item {
 
 	/* Acc et Personnage héritent de cette classe (Item soit Acc soit Personnage en fait) */
@@ -55,7 +56,7 @@ public abstract class Item {
 		return (Math.abs(x - item.x) + Math.abs(y - item.y)) ;
 	}
 	
-	/* // ancienne version faite de dessiner (moins complexe, plus simple mais moins satisfaisant)
+	/* // ancienne version faite de dessiner : abandonnée, go abstraite 
 	public void dessiner (Graphics g , Monde m) {
 		int tc = m.getTailleCase () ;
 		g.setColor(new Color(0, 0, 255 )) ; // couleur courante devient bleu

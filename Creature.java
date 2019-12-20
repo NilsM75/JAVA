@@ -1,6 +1,6 @@
 import java.awt.*;
 import javax.swing.*;
-import javax.imageio.ImageIO ;
+import javax.imageio.ImageIO ; 
 import java.io.* ;
 
 public class Creature extends Personnage{ // créature est un personnage qui a un sac
@@ -8,7 +8,6 @@ public class Creature extends Personnage{ // créature est un personnage qui a u
 	/* Attributs */
 	private Sac leSac ; // sac de la créature
 	private static int cptC = 0 ; //  compteur static utilitaire
-	private static int cptBigMac = 0;
 	/* Constructeurs */
 	public Creature (){
 		super(Noms.getNom()) ; // appel au constructeur Personnage(Noms.getNom())
@@ -27,7 +26,7 @@ public class Creature extends Personnage{ // créature est un personnage qui a u
 		if( (leSac.getPoids() + a.getPoids()) < (0.50d * super.getPoids()) ){ // 1.0/2.0 = 0.50
 			leSac.ajouter(a) ;
 		}else{
-			System.out.println("Trop lourd") ;
+			System.out.println("TROP LOURD !") ;
 		}
 	}
 
@@ -50,18 +49,14 @@ public class Creature extends Personnage{ // créature est un personnage qui a u
 		Nous avons proposé une solution moins complexe pour faire exactement la même chose.*/
 		Acc tab [] = leSac.getTab() ;
 		for(int i = 0 ; i < tab.length ; i ++){
-/*		if(tab[i].getCategorie() == "BigMac"){
-					cptBigMac++;
-			} 
-*/
 			if(tab[i] instanceof Mangeable){
 				Acc temp = tab[i] ;
 				manger((Mangeable) temp) ;
 				tab[i] = null ;
-				System.out.println(super.getNomPersonnage() + " a mangé " + temp.toString()) ;
-				cptBigMac++;
+				System.out.println(super.getNomPersonnage() + " A MANGE " + temp.toString()) ;
 			}
 		}
+		System.out.println(super.getNomPersonnage() + " A MANGE TOUT CE QU IL AVAIT DE MANGEABLE DANS SON SAC !") ; 
 	}
 
 	public void manger (Mangeable m){ // ajoute le poids du mangeable au poids de la créature
@@ -69,9 +64,6 @@ public class Creature extends Personnage{ // créature est un personnage qui a u
 		return ;
 	}
 
-	public int getCptBigMac(){
-		return cptBigMac;
-	}
 	public void courir (){ // affiche une chaine de caractère du même style que l'exemple plus bas
 		System.out.println(this.toString() + " court à vitesse " + String.format("%.2f", this.getVitesse()) + "km/h avec " + leSac.toString()) ;
 		return ;
@@ -89,32 +81,37 @@ public class Creature extends Personnage{ // créature est un personnage qui a u
 		return (super.toString()) ;
 	}
 
-	public Sac getLeSac(){
+	public Sac getLeSac(){ // retourne LeSac
 		return leSac;
 	}
-
+	
 	public void dessiner(Graphics g, Monde m) {
-		int tc = m.getTailleCase();
-		File creature;
-		Image image;
-		if (cptC == 0) {
-			try {
-				creature = new File("./images/creature.png");
-				image = ImageIO.read(creature);
-				g.drawImage(image, getX()*tc, getY()*tc, tc/2, tc/2, m);
-			} catch (IOException e){
-				System.out.println(e.getMessage());
-			}
-		} else {
-			try {
-				creature = new File("./images/creature1.png");
-				image = ImageIO.read(creature);
-				g.drawImage(image, getX()*tc, getY()*tc, tc/2, tc/2, m);
-			} catch (IOException e){
-				System.out.println(e.getMessage());
-			}
+
+		String nomDeCreature = Noms.getNom();
+		nomDeCreature = nomDeCreature.substring(0, nomDeCreature.length()-1);
+		int tc = m.getTailleCase() ;
+		String fileName;
+		File creature ;
+		Image image ; 
+		int i = 0 ;
+		while (i < Noms.getTabLength() && !nomDeCreature.equals(Noms.getTabNoms(i))){
+			i++ ;
 		}
-		cptC ++ ;
-		return ;
-	}
+
+		if (i % 2 == 0){
+			fileName = "./images/creature1.png";
+		} else {
+			fileName = "./images/creature2.png" ; 
+		}
+	
+		try {
+			creature = new File(fileName);
+			image = ImageIO.read(creature);
+			g.drawImage(image, getX()*tc, getY()*tc, tc, tc, m); 
+		} catch (IOException e){
+			System.out.println(e.getMessage());
+		}
+		return ; 
+	}	
+	
 }
