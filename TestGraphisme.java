@@ -21,7 +21,7 @@ public class TestGraphisme {
 		f.pack(); //Adaptation de la fenêtre au panneau
 		f.setVisible(true);
 
-		Avatar jake = new Avatar("Jake", 79.5, m);
+		Avatar jake = new Avatar("Jake", 75.0, m);
 
 		for (int i = 0; i < 10; i++) {
 
