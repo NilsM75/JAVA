@@ -6,38 +6,130 @@ import java.io.*;
 
 public class Jeu {
 	
-	/* Constantes pour qu'on puisse les modifier à notre guise ici, pour plus de tests */
-	private static final int TAILLE_CASE = 80 ;
-	private static final int NB_CASES = 10 ;
-	private static final int NB_CREATURES = 8 ;
-	
-	public static void main (String [] args){ // Notre main de Jeu
-	
+	private static final int TAILLE_CASE = 80;
+	private static final int NB_CASES = 10;
+	private static final int NB_CREATURES = 8;
+
+	public static void main(String[] args) throws InterruptedException {
+
 		//Création fenêtre graphique et ses caractéristiques
 		JFrame f = new JFrame();
 
 		f.setLocationRelativeTo(null);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		//Création du monde en mode panneau 
+		//Création du monde (qui est un panneau)
 		Monde m = new Monde(NB_CASES, TAILLE_CASE);
 
-		f.setContentPane(m); // le monde est ajouté à la fenêtre
-		f.pack(); // la dite fenêtre est adaptée au panneau 
-		f.setVisible(true); // visible OK 
+		f.setContentPane(m); //Ajout du monde à la fenêtre
+		f.pack(); //Adaptation de la fenêtre au panneau
+		f.setVisible(true);
+
+		Creature[] tabCreatures = new Creature[NB_CREATURES];
+		for (int i = 0; i < NB_CREATURES; i++){
+			tabCreatures[i] = new Creature(Noms.getNom());
+		}
+
+
+		BigMac a1 = new BigMac();
+		Pomme p1 = new Pomme();
+		Pomme p2 = new Pomme();
+		Pomme c1 = new Pomme();
+		Pomme c2 = new Pomme();
+		BigMac b1 = new BigMac();
+		BigMac b2 = new BigMac();
+		BigMac r1 = new BigMac();
+		Sac s1 = new Sac(5);
+		Sac ct1 = new Sac();
+		Pomme cb1 = new Pomme();
 		
-		System.out.println("@\t|Créatures et Avatars|\t@");
+		m.ajouterItem(a1);
+		m.ajouterItem(p1);
+		m.ajouterItem(p2);
+		m.ajouterItem(c1);
+		m.ajouterItem(c2);
+		m.ajouterItem(b1);
+		m.ajouterItem(b2);
+		m.ajouterItem(r1);
+		m.ajouterItem(s1);
+		m.ajouterItem(ct1);
+		m.ajouterItem(cb1);
+
+		int nbJoueurs;
+		String[] tabNoms = new String[4];
+		Avatar[] tabAvatars = new Avatar[4];
+
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("### Bienvenue à Créatures et Avatars ! ###\n  ");
+
+		/* Choix du nombre de joueurs. */
+		do{
+			System.out.println("Entrez le nombre de joueurs (1-4) : \n");
+			nbJoueurs = scanner.nextInt();
+		} while (nbJoueurs < 1 || nbJoueurs > 4);
+
+		/* Noms des joueurs et création des avatars. */
+		for (int i = 0; i < nbJoueurs; i++){
+			System.out.println("Nom du joueur "+i+" : \n");
+			tabNoms[i] = scanner.next();
+			tabAvatars[i] = new Avatar(tabNoms[i], m); 
+		}
 
 		m.repaint(); 
 
 		/* Tours de jeu. */
-		//m.repaint() à chaque tour
+		for (int i = 0; i < 5; i++) {
 
+			for (int j = 0; j < nbJoueurs; j++) {
+
+				Thread.sleep(1000); 
+				System.out.println("\n ###Tour "+i+", joueur : "+tabAvatars[j].getNomPersonnage()+" ###");
+				
+				int choix = 0;
+				while (choix < 1 || choix > 2){
+					System.out.print("Que voulez vous faire ? 1. Me déplacer, 2. Rencontrer mes voisins\nMon choix : ");
+					choix = scanner.nextInt();
+				}
+				switch (choix) {
+					case 1:
+						tabAvatars[j].seDeplacer();
+						break;
+					case 2:
+						tabAvatars[j].rencontrerVoisins();
+				}
+
+				m.repaint(); 
+
+			}
+
+
+
+		}
+
+		double distanceMax = 0.0;
+		Avatar gagnant = null;
+		
+		/* Course et calcule du gagnant. */
+		for (int i = 0; i < nbJoueurs; i++){
+			double distance = tabAvatars[i].course();
+			if (distance > distanceMax){
+				distanceMax = distance;
+				gagnant = tabAvatars[i]; 
+			}
+			System.out.println("Distance parcourue par les amis de "+tabAvatars[i].getNomPersonnage()+" : "+distance);
+		}
+
+		if (gagnant != null){
+			System.out.println("Le gagnant est "+gagnant.getNomPersonnage()+" !");
+		} else {
+			System.out.println("Il n'y a pas de gagnant.");
+		}
 
 		System.exit(0);
-		
-		return ; 
-	} // en dessous, il y a les anciens tests demandés, à mettre dans le main 
+
+	}
+
+	// en dessous, il y a les anciens tests demandés, à mettre dans le main 
 	
 		/*
 		
