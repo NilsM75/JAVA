@@ -18,7 +18,7 @@ public class Jeu {
 		f.setLocationRelativeTo(null);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		//Création du monde (qui est un panneau)
+		//Création du monde en mode panneau
 		Monde m = new Monde(NB_CASES, TAILLE_CASE);
 
 		f.setContentPane(m); //Ajout du monde à la fenêtre
@@ -60,17 +60,17 @@ public class Jeu {
 		Avatar[] tabAvatars = new Avatar[4];
 
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("### Bienvenue à Créatures et Avatars ! ###\n  ");
+		System.out.println("|Créatures et Avatars : Le Jeu|\n\tMenu Principal\t");
 
-		/* Choix du nombre de joueurs. */
+		// Choix du nombre de joueurs.
 		do{
-			System.out.println("Entrez le nombre de joueurs (1-4) : \n");
+			System.out.println("Tapez 1 pour lancer le mode 1 joueur\n2- Tapez 2 pour lancer le mode 2 joueurs\n3- Tapez 3 pour lancer le mode 3 joueurs\n4- Tapez 4 pour lancer le mode 4 joueurs");
 			nbJoueurs = scanner.nextInt();
 		} while (nbJoueurs < 1 || nbJoueurs > 4);
 
-		/* Noms des joueurs et création des avatars. */
+		
 		for (int i = 0; i < nbJoueurs; i++){
-			System.out.println("Nom du joueur "+i+" : \n");
+			System.out.println("Nom du joueur numéro " + i + " : ");
 			tabNoms[i] = scanner.next();
 			tabAvatars[i] = new Avatar(tabNoms[i], m); 
 		}
@@ -79,31 +79,12 @@ public class Jeu {
 
 		/* Tours de jeu. */
 		for (int i = 0; i < 5; i++) {
-
 			for (int j = 0; j < nbJoueurs; j++) {
-
 				Thread.sleep(1000); 
-				System.out.println("\n ###Tour "+i+", joueur : "+tabAvatars[j].getNomPersonnage()+" ###");
-				
-				int choix = 0;
-				while (choix < 1 || choix > 2){
-					System.out.print("Que voulez vous faire ? 1. Me déplacer, 2. Rencontrer mes voisins\nMon choix : ");
-					choix = scanner.nextInt();
-				}
-				switch (choix) {
-					case 1:
-						tabAvatars[j].seDeplacer();
-						break;
-					case 2:
-						tabAvatars[j].rencontrerVoisins();
-				}
-
+				System.out.println("Tour " + i + "du joueur " + tabAvatars[j].getNomPersonnage() + " : ");
+				tabAvatars[j].seDeplacer();
 				m.repaint(); 
-
 			}
-
-
-
 		}
 
 		double distanceMax = 0.0;
@@ -120,7 +101,7 @@ public class Jeu {
 		}
 
 		if (gagnant != null){
-			System.out.println("Le gagnant est "+gagnant.getNomPersonnage()+" !");
+			System.out.println(gagnant.getNomPersonnage() + " !");
 		} else {
 			System.out.println("Il n'y a pas de gagnant.");
 		}
