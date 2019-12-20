@@ -77,11 +77,21 @@ public class Jeu {
 
 		m.repaint(); 
 
+		int choice = 0 ; 
 		for (int i = 0; i < 5; i++) {
 			for (int j = 0; j < nbJoueurs; j++) {
 				Thread.sleep(1000); 
 				System.out.println("Tour " + i + "du joueur " + tabAvatars[j].getNomPersonnage() + " : ");
-				tabAvatars[j].seDeplacer();
+				choice = 0 ; 
+				while (choice < 1 || choice > 2){
+					System.out.println("1. Je me déplace\n2. Je rencontre mes voisins") ; 
+					choice = scanner.nextInt() ; 
+				}
+				if(choice == 1){
+					tabAvatars[j].seDeplacer();
+				} else {
+					tabAvatars[j].rencontrerVoisins() ; 
+				}
 				m.repaint(); 
 			}
 		}
@@ -92,8 +102,8 @@ public class Jeu {
 		for (int i = 1; i < nbJoueurs; i++){
 			double distance = tabAvatars[i].course();
 			if (distance > max){
-				max = distance;
 				gagnant = tabAvatars[i]; 
+				max = distance;
 			}
 			System.out.println("Score de " + tabAvatars[i].getNomPersonnage() + " est " + distance + " Km");
 		}
