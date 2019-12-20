@@ -36,7 +36,8 @@ public class Question15 {
 		Creature creature6 = new Creature() ;
 		monde.ajouterItem(creature6) ;
 		//System.out.println("Créature6 ajoutée :\n" + creature6.toString()) ;
-		Creature ronald1 = (Creature) (new RonaldMcDonald());
+		//Creature ronald1 = (Creature) (new RonaldMcDonald());
+		RonaldMcDonald ronald1 = new RonaldMcDonald();
 		monde.ajouterItem(ronald1) ;
 
 		// Ajout de 3 pommes dans le monde **************************************

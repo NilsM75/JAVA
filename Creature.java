@@ -8,6 +8,7 @@ public class Creature extends Personnage{ // créature est un personnage qui a u
 	/* Attributs */
 	private Sac leSac ; // sac de la créature
 	private static int cptC = 0 ; //  compteur static utilitaire
+	private static int cptBigMac = 0;
 	/* Constructeurs */
 	public Creature (){
 		super(Noms.getNom()) ; // appel au constructeur Personnage(Noms.getNom())
@@ -49,11 +50,16 @@ public class Creature extends Personnage{ // créature est un personnage qui a u
 		Nous avons proposé une solution moins complexe pour faire exactement la même chose.*/
 		Acc tab [] = leSac.getTab() ;
 		for(int i = 0 ; i < tab.length ; i ++){
+/*		if(tab[i].getCategorie() == "BigMac"){
+					cptBigMac++;
+			} 
+*/
 			if(tab[i] instanceof Mangeable){
 				Acc temp = tab[i] ;
 				manger((Mangeable) temp) ;
 				tab[i] = null ;
 				System.out.println(super.getNomPersonnage() + " a mangé " + temp.toString()) ;
+				cptBigMac++;
 			}
 		}
 	}
@@ -63,6 +69,9 @@ public class Creature extends Personnage{ // créature est un personnage qui a u
 		return ;
 	}
 
+	public int getCptBigMac(){
+		return cptBigMac;
+	}
 	public void courir (){ // affiche une chaine de caractère du même style que l'exemple plus bas
 		System.out.println(this.toString() + " court à vitesse " + String.format("%.2f", this.getVitesse()) + "km/h avec " + leSac.toString()) ;
 		return ;
