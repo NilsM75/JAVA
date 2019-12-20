@@ -1,0 +1,4 @@
+problèmes à corriger : 
+	abscisses et ordonnées réinversées (voir ancienne version)
+
+	RonaldMcDonald nv version 2 merde (voir ancienne version) 
